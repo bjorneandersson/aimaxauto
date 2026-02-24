@@ -80,7 +80,7 @@ export function calcDepreciation(v: Vehicle): DepreciationResult {
   const age = 2026 - v.year;
 
   // Calculate value at each age point
-  const depCurve = [];
+  const depCurve: { year: number; value: number; factor: number; totalLoss: number; lossPercent: number }[] = [];
   for (let yr = 0; yr <= 10; yr++) {
     const yrMonths = yr * 12;
     const depKeyVal = nearestKey(MONTHLY_DEPRECIATION, yrMonths);
