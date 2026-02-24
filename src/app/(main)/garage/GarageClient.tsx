@@ -5,6 +5,7 @@ import type { GarageVehicle } from "@/data/vehicles";
 import { VehicleCard } from "@/components/garage/VehicleCard";
 import { VehicleDashboard } from "@/components/garage/VehicleDashboard";
 import { FinancesTab } from "@/components/garage/FinancesTab";
+import { ServiceTab } from "@/components/garage/ServiceTab";
 
 export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -112,9 +113,10 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
             {detailTab === "overview" && <VehicleDashboard v={v} />}
             {detailTab === "tech" && <TechSpecs v={v} />}
             {detailTab === "economy" && <FinancesTab v={v} />}
-            {["service","sell","docs"].includes(detailTab) && (
+            {detailTab === "service" && <ServiceTab v={v} />}
+            {["sell","docs"].includes(detailTab) && (
               <div className="bg-[#16181c] border border-[#2a2a2f] rounded-xl p-8 text-center">
-                <div className="text-4xl mb-3 opacity-40">{detailTab === "service" ? "🔧" : detailTab === "sell" ? "🏷" : "📄"}</div>
+                <div className="text-4xl mb-3 opacity-40">{detailTab === "sell" ? "🏷" : "📄"}</div>
                 <div className="text-sm text-gray-400">Coming soon</div>
               </div>
             )}
