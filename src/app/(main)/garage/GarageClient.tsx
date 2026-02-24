@@ -26,7 +26,7 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0c] text-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <div className="bg-[#0a0a0c] text-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
       {/* Header */}
       <div className="sticky top-0 z-10 bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-[#2a2a2f]">
         <div className="px-5 py-3 flex justify-between items-center">
@@ -78,7 +78,7 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
       </div>
 
       {/* Content */}
-      <div className="max-w-6xl mx-auto p-5">
+      <div className="p-5">
         {/* Grid View */}
         {!detailView && view === "grid" && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">

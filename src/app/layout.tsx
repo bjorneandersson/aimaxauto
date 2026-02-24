@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className="bg-[#0a0a0c] text-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>{children}</body>
     </html>
   );
 }
