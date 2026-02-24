@@ -1,0 +1,217 @@
+// ═══════════════════════════════════════════════════════════════
+// AIMAXAUTO — Prisma Schema
+// Database: Vercel Postgres
+// ═══════════════════════════════════════════════════════════════
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL")
+  directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+// ── NextAuth.js Models ──────────────────────────────────────
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.Text
+  access_token      String? @db.Text
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.Text
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// ── User ────────────────────────────────────────────────────
+
+enum UserRole {
+  USER
+  MODERATOR
+  ADMIN
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime?
+  image         String?
+  role          UserRole  @default(USER)
+  bio           String?
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // Relations
+  accounts Account[]
+  sessions Session[]
+  vehicles Vehicle[]
+  posts    Post[]
+  comments Comment[]
+
+  // Subscription
+  plan          String  @default("free") // free | premium | pro
+  stripeId      String?
+  airaCredits   Int     @default(3)
+  airaTokensUsed Int    @default(0)
+}
+
+// ── Vehicle ─────────────────────────────────────────────────
+
+model Vehicle {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Core info
+  brand     String
+  model     String
+  year      Int
+  body      String?   // SUV, Sedan, Hatchback, etc.
+  fuel      String    // gas, diesel, hybrid, PHEV, Electric
+  hp        Int?
+
+  // Mileage & registration
+  mileage       Int       @default(0)  // in miles
+  regRegion     String?   // northeast, southeast, midwest, southwest, westcoast
+  regCountry    String    @default("US")
+  vin           String?
+  licensePlate  String?
+
+  // Spec details
+  motorVariant  String?
+  baseMotor     String?
+  fuelType      String?
+  baseFuel      String?
+  driveVariant  String?   // FWD, AWD, RWD, 4WD
+  transVariant  String?   // auto, manual, CVT
+  baseTrans     String?
+  trimLevel     String?
+  baseTrim      String?
+  paintType     String?   // solid, metallic, pearl
+
+  // Equipment (stored as JSON arrays)
+  extraEquip    Json?     // string[]
+  missingEquip  Json?     // string[]
+
+  // Condition deviations
+  deviations    Json?     // { desc: string, sev: "critical" | "moderate" | "minor" }[]
+
+  // Cached valuation
+  lastValuation     Int?
+  lastValuationDate DateTime?
+  confidence        Int?
+
+  // Insurance & costs
+  insuranceCost     Float?
+  annualTax         Float?
+  monthlyFuelCost   Float?
+
+  // Status
+  isPublic    Boolean @default(false)
+  isForSale   Boolean @default(false)
+  askingPrice Int?
+
+  @@index([userId])
+  @@index([brand, model, year])
+}
+
+// ── Community ───────────────────────────────────────────────
+
+model Post {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content   String   @db.Text
+  images    Json?    // string[] of image URLs
+  likes     Int      @default(0)
+  type      String   @default("post") // post, review, question, listing
+
+  // Moderation
+  isHidden    Boolean @default(false)
+  isFlagged   Boolean @default(false)
+  flagReason  String?
+  moderatedAt DateTime?
+  moderatedBy String?
+
+  comments Comment[]
+
+  @@index([userId])
+  @@index([createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+
+  content   String   @db.Text
+  isHidden  Boolean  @default(false)
+
+  @@index([postId])
+}
+
+// ── Valuation Parameters (admin-editable) ───────────────────
+
+model ValuationParam {
+  id        String   @id @default(cuid())
+  key       String   @unique  // e.g. "AGE_CURVE", "BRAND_PRESTIGE.Toyota"
+  value     Json                // the actual data
+  label     String?             // human-readable label
+  category  String              // curve, prestige, equipment, region, etc.
+  updatedAt DateTime @updatedAt
+  updatedBy String?
+
+  @@index([category])
+}
+
+// ── Audit Log ───────────────────────────────────────────────
+
+model AuditLog {
+  id        String   @id @default(cuid())
+  userId    String
+  action    String   // e.g. "vehicle.create", "param.update", "user.ban"
+  target    String?  // ID of affected entity
+  details   Json?    // additional context
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([action])
+  @@index([createdAt])
+}
