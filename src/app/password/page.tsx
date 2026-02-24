@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function PasswordPage() {
+function PasswordForm() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -29,6 +29,69 @@ export default function PasswordPage() {
   };
 
   return (
+    <>
+      {error && (
+        <div
+          style={{
+            marginBottom: 16,
+            padding: "10px 16px",
+            borderRadius: 12,
+            background: "rgba(239,68,68,0.1)",
+            border: "1px solid rgba(239,68,68,0.2)",
+            color: "#ef4444",
+            fontSize: 13,
+          }}
+        >
+          Wrong password
+        </div>
+      )}
+
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+        placeholder="Password"
+        autoFocus
+        style={{
+          width: "100%",
+          padding: "14px 18px",
+          background: "#16181c",
+          border: "1px solid #2a2a2f",
+          borderRadius: 12,
+          color: "#e7e9ea",
+          fontSize: 15,
+          outline: "none",
+          marginBottom: 12,
+          boxSizing: "border-box",
+        }}
+      />
+
+      <button
+        onClick={handleSubmit}
+        disabled={loading || !password}
+        style={{
+          width: "100%",
+          padding: "14px 0",
+          background: password ? "#FF6B00" : "#2a2a2f",
+          color: password ? "#fff" : "#536471",
+          borderRadius: 12,
+          fontSize: 15,
+          fontWeight: 600,
+          cursor: password ? "pointer" : "not-allowed",
+          border: "none",
+          transition: "all 0.2s",
+          opacity: loading ? 0.7 : 1,
+        }}
+      >
+        {loading ? "..." : "Enter"}
+      </button>
+    </>
+  );
+}
+
+export default function PasswordPage() {
+  return (
     <div
       style={{
         minHeight: "100vh",
@@ -41,7 +104,6 @@ export default function PasswordPage() {
       }}
     >
       <div style={{ width: "100%", maxWidth: 360, textAlign: "center" }}>
-        {/* Logo */}
         <div
           style={{
             width: 56,
@@ -60,85 +122,16 @@ export default function PasswordPage() {
           Ai
         </div>
 
-        <h1
-          style={{
-            fontSize: 24,
-            fontWeight: 700,
-            color: "#e7e9ea",
-            marginBottom: 8,
-          }}
-        >
+        <h1 style={{ fontSize: 24, fontWeight: 700, color: "#e7e9ea", marginBottom: 8 }}>
           Aimaxauto
         </h1>
-        <p
-          style={{
-            fontSize: 14,
-            color: "#71767b",
-            marginBottom: 32,
-          }}
-        >
+        <p style={{ fontSize: 14, color: "#71767b", marginBottom: 32 }}>
           Enter password to continue
         </p>
 
-        {/* Error */}
-        {error && (
-          <div
-            style={{
-              marginBottom: 16,
-              padding: "10px 16px",
-              borderRadius: 12,
-              background: "rgba(239,68,68,0.1)",
-              border: "1px solid rgba(239,68,68,0.2)",
-              color: "#ef4444",
-              fontSize: 13,
-            }}
-          >
-            Wrong password
-          </div>
-        )}
-
-        {/* Input */}
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
-          placeholder="Password"
-          autoFocus
-          style={{
-            width: "100%",
-            padding: "14px 18px",
-            background: "#16181c",
-            border: "1px solid #2a2a2f",
-            borderRadius: 12,
-            color: "#e7e9ea",
-            fontSize: 15,
-            outline: "none",
-            marginBottom: 12,
-            boxSizing: "border-box",
-          }}
-        />
-
-        {/* Button */}
-        <button
-          onClick={handleSubmit}
-          disabled={loading || !password}
-          style={{
-            width: "100%",
-            padding: "14px 0",
-            background: password ? "#FF6B00" : "#2a2a2f",
-            color: password ? "#fff" : "#536471",
-            borderRadius: 12,
-            fontSize: 15,
-            fontWeight: 600,
-            cursor: password ? "pointer" : "not-allowed",
-            border: "none",
-            transition: "all 0.2s",
-            opacity: loading ? 0.7 : 1,
-          }}
-        >
-          {loading ? "..." : "Enter"}
-        </button>
+        <Suspense fallback={<div style={{ color: "#71767b" }}>Loading...</div>}>
+          <PasswordForm />
+        </Suspense>
       </div>
     </div>
   );
