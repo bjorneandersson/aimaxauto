@@ -1,34 +1,38 @@
-import { withAuth } from "next-auth/middleware";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export default withAuth(
-  function middleware(req) {
-    const token = req.nextauth.token;
-    const isAdminRoute = req.nextUrl.pathname.startsWith("/admin");
-    const isLoginPage = req.nextUrl.pathname === "/admin/login";
+// ═══════════════════════════════════════════════════════════════
+// SITE PASSWORD — change via env variable or edit default here
+// ═══════════════════════════════════════════════════════════════
+const SITE_PASSWORD = process.env.SITE_PASSWORD || "aimaxauto2026";
+const COOKIE_NAME = "site-auth";
 
-    // Allow login page
-    if (isLoginPage) return NextResponse.next();
+export function middleware(req: NextRequest) {
+  const { pathname } = req.nextUrl;
 
-    // Block non-admin users from /admin routes
-    if (isAdminRoute && token?.role !== "ADMIN" && token?.role !== "MODERATOR") {
-      return NextResponse.redirect(new URL("/admin/login?error=unauthorized", req.url));
-    }
-
+  // Skip: password page itself, API auth routes, static assets
+  if (
+    pathname === "/password" ||
+    pathname.startsWith("/api/auth") ||
+    pathname.startsWith("/_next/") ||
+    pathname.startsWith("/favicon")
+  ) {
     return NextResponse.next();
-  },
-  {
-    callbacks: {
-      authorized: ({ token, req }) => {
-        // Allow login page without auth
-        if (req.nextUrl.pathname === "/admin/login") return true;
-        // Require auth for all other admin routes
-        return !!token;
-      },
-    },
   }
-);
+
+  // Check password cookie
+  const authCookie = req.cookies.get(COOKIE_NAME)?.value;
+  if (authCookie !== SITE_PASSWORD) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/password";
+    url.searchParams.set("from", pathname);
+    return NextResponse.rewrite(url);
+  }
+
+  return NextResponse.next();
+}
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|app-legacy\\.html).*)",
+  ],
 };
