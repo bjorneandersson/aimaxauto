@@ -115,7 +115,7 @@ export default async function DashboardPage() {
                     </div>
                   </div>
                   <div className="text-xs font-mono text-text-secondary">
-                    {v.lastValuation ? `$${v.lastValuation.toLocaleString()}` : "—"}
+                    {v.marketValue ? `$${v.marketValue.toLocaleString()}` : "—"}
                   </div>
                 </div>
               ))
