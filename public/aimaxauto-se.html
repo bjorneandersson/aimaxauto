@@ -2219,7 +2219,7 @@ return<div>
 <div style={{display:"flex",flexWrap:"wrap",gap:6}}>{v.equip.map(eq=><span key={eq} style={{padding:"5px 12px",background:C.oD,borderRadius:20,fontSize:12,color:C.o,fontWeight:500}}>{eq}</span>)}</div></div>
 
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Mätarställning >Mileage & Insurance< Försäkring</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Mätarställning & Försäkring</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6,marginBottom:10}}>
 <div style={{padding:8,background:C.el,borderRadius:6}}><div style={{fontSize:9,color:C.t3}}>Beräknad körsträcka/år</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{v.estMil||"—"} <span style={{fontSize:10,fontWeight:400,color:C.t3}}>mi</span></div></div>
 <div style={{padding:8,background:C.el,borderRadius:6}}><div style={{fontSize:9,color:C.t3}}>Current odometer</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{v.mi} <span style={{fontSize:10,fontWeight:400,color:C.t3}}>mi</span></div></div>
@@ -2245,7 +2245,7 @@ return<div>
 </div>
 
 {(v.gar?.length>0||v.fin)&&<div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Garanti >Warranty & Financing< Finansiering</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Garanti & Finansiering</div>
 {v.gar?.map((g,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"5px 0",borderBottom:i<v.gar.length-1?"1px solid "+C.brd+"20":"none"}}><div><div style={{fontSize:12,fontWeight:600,color:g.note?.includes("expired")?C.t3:C.t1}}>{g.ty}</div><div style={{fontSize:10,color:C.t3}}>{g.note}</div></div><div style={{fontSize:10,fontWeight:600,color:g.note?.includes("expired")?C.r:C.g}}>{g.note?.includes("expired")?"Expired":"Active"}</div></div>)}
 {v.fin&&<div style={{marginTop:8,padding:10,background:C.oD,borderRadius:8,border:"1px solid "+C.o+"20"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
@@ -2344,7 +2344,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 
 {detailTab==="service"&&<div>
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:16}}>
-<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Service >Service & Inspection< Besiktning</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Service & Besiktning</div>
 {[["Last Service",v.servLast],["Next Service",v.servNext],["Last Inspection",v.insp],["Next Inspection",v.nextInsp],["Insurance Provider",v.ins?.co||"—"],["Insurance Valid",v.ins?.valid||"—"]].map(([l,val])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between",padding:"10px 0",borderBottom:`1px solid ${C.brd}25`}}><span style={{fontSize:13,color:C.t2}}>{l}</span><span style={{fontSize:13,fontWeight:600}}>{val||"—"}</span></div>)}</div>
 {v.devs?.length>0&&<div style={{background:C.card,border:`1px solid ${C.r}20`,borderRadius:12,padding:20,marginBottom:16}}>
