@@ -1,0 +1,9 @@
+// Add this to the bottom of your existing schema.prisma file:
+
+model AiraLog {
+  id        String   @id @default(uuid())
+  question  String
+  answer    String
+  model     String   @default("")
+  createdAt DateTime @default(now())
+}

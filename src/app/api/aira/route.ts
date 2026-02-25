@@ -86,6 +86,11 @@ ${vehicleContext}
     "claude-3-5-haiku-20241022",
   ];
 
+  // Extract the user's last question for logging (skip system prompts)
+  const lastUserMsg = [...messages].reverse().find((m: any) => m.role === "user");
+  const question = lastUserMsg?.content || "";
+  const isSystemGreeting = question.startsWith("[SYSTEM:");
+
   let lastError = "";
 
   for (const model of models) {
@@ -107,7 +112,56 @@ ${vehicleContext}
       });
 
       if (response.ok) {
-        return new Response(response.body, {
+        // Create a TransformStream to intercept the streamed response for logging
+        const { readable, writable } = new TransformStream();
+        let fullAnswer = "";
+
+        const writer = writable.getWriter();
+        const reader = response.body!.getReader();
+
+        // Process stream in background — forward to client AND collect full answer
+        (async () => {
+          const decoder = new TextDecoder();
+          try {
+            while (true) {
+              const { done, value } = await reader.read();
+              if (done) break;
+
+              // Forward chunk to client
+              await writer.write(value);
+
+              // Parse for logging
+              const text = decoder.decode(value, { stream: true });
+              const lines = text.split("\n");
+              for (const line of lines) {
+                if (!line.startsWith("data: ")) continue;
+                const data = line.slice(6);
+                if (data === "[DONE]") continue;
+                try {
+                  const parsed = JSON.parse(data);
+                  if (parsed.type === "content_block_delta" && parsed.delta?.text) {
+                    fullAnswer += parsed.delta.text;
+                  }
+                } catch {}
+              }
+            }
+          } finally {
+            await writer.close();
+
+            // Log to database (skip system greeting prompts)
+            if (!isSystemGreeting && question && fullAnswer) {
+              try {
+                await prisma.airaLog.create({
+                  data: { question, answer: fullAnswer, model },
+                });
+              } catch (logErr) {
+                console.error("Failed to log AIRA chat:", logErr);
+              }
+            }
+          }
+        })();
+
+        return new Response(readable, {
           headers: {
             "Content-Type": "text/event-stream",
             "Cache-Control": "no-cache",
@@ -119,7 +173,6 @@ ${vehicleContext}
       const errText = await response.text();
       lastError = `${model}: ${response.status} - ${errText.substring(0, 300)}`;
 
-      // Only retry on 404 (model not found), not on auth/rate errors
       if (response.status !== 404) {
         return NextResponse.json(
           { error: `API error (${model}): ${response.status}`, details: errText.substring(0, 500) },
