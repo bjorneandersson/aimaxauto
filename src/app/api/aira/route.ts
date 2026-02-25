@@ -1,4 +1,4 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 
 export const runtime = "nodejs";
@@ -7,26 +7,25 @@ export const maxDuration = 60;
 export async function POST(req: NextRequest) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return new Response(JSON.stringify({ error: "ANTHROPIC_API_KEY not configured" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ error: "ANTHROPIC_API_KEY not configured" }, { status: 500 });
   }
 
-  const { messages } = await req.json();
+  let body;
+  try {
+    body = await req.json();
+  } catch {
+    return NextResponse.json({ error: "Invalid JSON body" }, { status: 400 });
+  }
+
+  const { messages } = body;
   if (!messages || !Array.isArray(messages)) {
-    return new Response(JSON.stringify({ error: "messages required" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
+    return NextResponse.json({ error: "messages array required" }, { status: 400 });
   }
 
   // Fetch vehicles from database for context
   let vehicles: any[] = [];
   try {
-    vehicles = await prisma.vehicle.findMany({
-      orderBy: { createdAt: "asc" },
-    });
+    vehicles = await prisma.vehicle.findMany({ orderBy: { createdAt: "asc" } });
   } catch (e) {
     // Continue without vehicle data
   }
@@ -79,37 +78,61 @@ ${vehicleContext}
 - Refer costs to monthly amounts when possible — people think in monthly budgets
 - The user's name is James (Premium member)`;
 
-  // Call Anthropic API with streaming
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "x-api-key": apiKey,
-      "anthropic-version": "2023-06-01",
-    },
-    body: JSON.stringify({
-      model: "claude-3-5-sonnet-20241022",
-      max_tokens: 1024,
-      system: systemPrompt,
-      messages,
-      stream: true,
-    }),
-  });
+  // Try models in order of preference
+  const models = [
+    "claude-sonnet-4-5-20250514",
+    "claude-3-5-sonnet-20241022",
+    "claude-3-5-sonnet-20240620",
+    "claude-3-haiku-20240307",
+  ];
 
-  if (!response.ok) {
-    const err = await response.text();
-    return new Response(JSON.stringify({ error: `Anthropic API error: ${response.status}`, details: err }), {
-      status: response.status,
-      headers: { "Content-Type": "application/json" },
-    });
+  let lastError = "";
+
+  for (const model of models) {
+    try {
+      const response = await fetch("https://api.anthropic.com/v1/messages", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": apiKey,
+          "anthropic-version": "2023-06-01",
+        },
+        body: JSON.stringify({
+          model,
+          max_tokens: 1024,
+          system: systemPrompt,
+          messages,
+          stream: true,
+        }),
+      });
+
+      if (response.ok) {
+        return new Response(response.body, {
+          headers: {
+            "Content-Type": "text/event-stream",
+            "Cache-Control": "no-cache",
+            Connection: "keep-alive",
+          },
+        });
+      }
+
+      const errText = await response.text();
+      lastError = `${model}: ${response.status} - ${errText.substring(0, 200)}`;
+
+      // Only retry on 404 (model not found), not on auth errors etc.
+      if (response.status !== 404) {
+        return NextResponse.json(
+          { error: `API error (${model}): ${response.status}`, details: errText.substring(0, 500) },
+          { status: response.status }
+        );
+      }
+    } catch (fetchErr: any) {
+      lastError = `${model}: fetch failed - ${fetchErr.message}`;
+    }
   }
 
-  // Forward the SSE stream
-  return new Response(response.body, {
-    headers: {
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
+  return NextResponse.json(
+    { error: "No compatible model found", details: lastError },
+    { status: 500 }
+  );
 }
