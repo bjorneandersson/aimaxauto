@@ -78,12 +78,12 @@ ${vehicleContext}
 - Refer costs to monthly amounts when possible — people think in monthly budgets
 - The user's name is James (Premium member)`;
 
-  // Try models in order of preference
+  // Current model names as of Feb 2026
   const models = [
-    "claude-sonnet-4-5-20250514",
+    "claude-sonnet-4-5-20250929",
+    "claude-haiku-4-5-20251001",
     "claude-3-5-sonnet-20241022",
-    "claude-3-5-sonnet-20240620",
-    "claude-3-haiku-20240307",
+    "claude-3-5-haiku-20241022",
   ];
 
   let lastError = "";
@@ -117,9 +117,9 @@ ${vehicleContext}
       }
 
       const errText = await response.text();
-      lastError = `${model}: ${response.status} - ${errText.substring(0, 200)}`;
+      lastError = `${model}: ${response.status} - ${errText.substring(0, 300)}`;
 
-      // Only retry on 404 (model not found), not on auth errors etc.
+      // Only retry on 404 (model not found), not on auth/rate errors
       if (response.status !== 404) {
         return NextResponse.json(
           { error: `API error (${model}): ${response.status}`, details: errText.substring(0, 500) },
@@ -132,7 +132,7 @@ ${vehicleContext}
   }
 
   return NextResponse.json(
-    { error: "No compatible model found", details: lastError },
+    { error: "No compatible model found. Check your API key and credits.", details: lastError },
     { status: 500 }
   );
 }
