@@ -2,8 +2,8 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import LeftNav from "@/components/layout/LeftNav";
-import RightBar from "@/components/layout/RightBar";
+import { LeftNav } from "@/components/layout/LeftNav";
+import { RightBar } from "@/components/layout/RightBar";
 
 // ═══════════════════════════════════════════════════════════════
 // ADD VEHICLE — Registration Number Lookup + Form
