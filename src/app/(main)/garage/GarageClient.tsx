@@ -6,6 +6,8 @@ import { VehicleCard } from "@/components/garage/VehicleCard";
 import { VehicleDashboard } from "@/components/garage/VehicleDashboard";
 import { FinancesTab } from "@/components/garage/FinancesTab";
 import { ServiceTab } from "@/components/garage/ServiceTab";
+import { SellTab } from "@/components/garage/SellTab";
+import { DocsTab } from "@/components/garage/DocsTab";
 
 export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
   const [activeTab, setActiveTab] = useState(0);
@@ -28,7 +30,7 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
   }
 
   return (
-    <div className="bg-[#0a0a0c] text-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
+    <div className="min-h-screen bg-[#0a0a0c] text-white" style={{ fontFamily: "'DM Sans', system-ui, sans-serif" }}>
       {/* Header */}
       <div className="sticky top-0 z-10 bg-[#0a0a0c]/90 backdrop-blur-xl border-b border-[#2a2a2f]">
         <div className="px-5 py-3 flex justify-between items-center">
@@ -80,7 +82,7 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="max-w-6xl mx-auto p-5">
         {/* Grid View */}
         {!detailView && view === "grid" && (
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -114,12 +116,8 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
             {detailTab === "tech" && <TechSpecs v={v} />}
             {detailTab === "economy" && <FinancesTab v={v} />}
             {detailTab === "service" && <ServiceTab v={v} />}
-            {["sell","docs"].includes(detailTab) && (
-              <div className="bg-[#16181c] border border-[#2a2a2f] rounded-xl p-8 text-center">
-                <div className="text-4xl mb-3 opacity-40">{detailTab === "sell" ? "🏷" : "📄"}</div>
-                <div className="text-sm text-gray-400">Coming soon</div>
-              </div>
-            )}
+            {detailTab === "sell" && <SellTab v={v} />}
+            {detailTab === "docs" && <DocsTab />}
           </div>
         )}
 
