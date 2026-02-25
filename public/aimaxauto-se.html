@@ -103,7 +103,7 @@ const EQUIP_RESIDUAL_CURVE={0:0.75,1:0.60,2:0.50,3:0.42,4:0.35,5:0.30,6:0.25,7:0
 
 // ── SEARCH SOURCES PER MARKET — Including ALL stora EU Marketsplatser ──
 const SEARCH_SOURCES={
-US:[
+SE:[
 {id:"blocket",name:"Blocket",icon:"🔵",url:"blocket.se",type:"C2C",weight:1.0,listingCount:180000},
 {id:"bytbil",name:"Bytbil",icon:"🟢",url:"bytbil.com",type:"B2C",weight:0.95,listingCount:85000},
 {id:"wayke",name:"Wayke",icon:"🔴",url:"wayke.se",type:"B2C",weight:0.90,listingCount:70000},
@@ -196,7 +196,7 @@ const miFactor=MIL_CURVE[miKey]||0.52;
 const modelKey=Object.keys(MODEL_BASELINES).find(k=>v.brand+" "+v.model.split(" ")[0]===k||(v.brand+" "+v.model).includes(k));
 const bl=MODEL_BASELINES[modelKey||""]||{baseNewPrice:420000,avgMil:1300};
 const basePrice=Math.round(bl.baseNewPrice*Math.sqrt(ageFactor*miFactor)*fuelCoeff);
-const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE||SEARCH_SOURCES.SE;
+const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE;
 const listings=[];
 const variance=0.12;
 for(const src of sources){
@@ -227,7 +227,7 @@ const region=REGIONS_SE[v.regRegion||"westcoast"]||REGIONS_SE.stockholm;
 const age=2026-v.year;
 const modelKey=Object.keys(MODEL_BASELINES).find(k=>v.brand+" "+v.model.split(" ")[0]===k||(v.brand+" "+v.model).includes(k));
 const bl=MODEL_BASELINES[modelKey||""]||{baseNewPrice:420000,avgMil:1300};
-const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE||SEARCH_SOURCES.SE;
+const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE;
 const listings=[];
 for(let yearDiff=-2;yearDiff<=2;yearDiff++){
   if(yearDiff===0) continue;
@@ -273,7 +273,7 @@ for(const[segKey,seg] of Object.entries(SEGMENT_COMPARABLES)){
 }
 if(!segment) return[];
 const comparables=segment.models.filter(m=>m.brand!==v.brand).slice(0,3);
-const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE||SEARCH_SOURCES.SE;
+const sources=SEARCH_SOURCES[market]||SEARCH_SOURCES.SE;
 const listings=[];
 for(const comp of comparables){
   const compPrestige=BRAND_PRESTIGE[comp.brand]||1.00;
@@ -3251,7 +3251,7 @@ const[airaBilling,setAiraBilling]=useState({totalTokens:0,totalCost:0,sessionQue
 const[showPaywall,setShowPaywall]=useState(false);
 const toast=(m)=>setToastM(m);
 const unread=notifs.filter(n=>!n.read).length;
-const handleUpgrade=(plan)=>{setPremPlan(plan);setIsPremium(true);toast("Välkommen som "+PLANS[plan].name" medlem! Dina AIRA-frågor debiteras nu per session.")};
+const handleUpgrade=(plan)=>{setPremPlan(plan);setIsPremium(true);toast("Välkommen som "+PLANS[plan].name+" medlem! Dina AIRA-frågor debiteras nu per session.")};
 
 const changePage=(p)=>{setPage(p);setSelV(null);window.scrollTo(0,0)};
 
