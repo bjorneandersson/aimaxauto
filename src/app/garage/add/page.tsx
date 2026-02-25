@@ -634,7 +634,7 @@ export default function AddVehiclePage() {
         </div>
       </main>
 
-      <RightBar />
+      <RightBar vehicles={[]} />
     </div>
   );
 }
