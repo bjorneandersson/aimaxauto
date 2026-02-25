@@ -10,46 +10,7 @@ import { RightBar } from "@/components/layout/RightBar";
 // Uses Biluppgifter API for Swedish vehicle data
 // ═══════════════════════════════════════════════════════════════
 
-interface VehicleLookupData {
-  brand: string;
-  model: string;
-  year: number;
-  body: string | null;
-  fuel: string;
-  hp: number | null;
-  color: string | null;
-  licensePlate: string;
-  vin: string | null;
-  regCountry: string;
-  mileage: number;
-  owners: number;
-  drive: string | null;
-  trans: string | null;
-  topSpeed: string | null;
-  consumption: string | null;
-  co2: string | null;
-  battery: string | null;
-  rangemi: string | null;
-  weight: string | null;
-  towCapacity: string | null;
-  length: string | null;
-  width: string | null;
-  height: string | null;
-  seats: number | null;
-  inspectionStatus: string | null;
-  lastInspection: string | null;
-  nextInspection: string | null;
-  annualTax: number;
-  marketValue: number | null;
-  stolen: boolean;
-  imported: boolean;
-  leasing: boolean;
-  boughtOnCredit: boolean;
-  firstRegistered: string | null;
-  manufactureCountry: string | null;
-  euroClass: string | null;
-  tires: { front: string; rear: string; rimFront: string | null; rimRear: string | null } | null;
-}
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 export default function AddVehiclePage() {
   const router = useRouter();
@@ -57,7 +18,7 @@ export default function AddVehiclePage() {
   const [loading, setLoading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
-  const [lookupData, setLookupData] = useState<VehicleLookupData | null>(null);
+  const [lookupData, setLookupData] = useState<any>(null);
   const [looked, setLooked] = useState(false);
   const formRef = useRef<HTMLDivElement>(null);
 
@@ -105,7 +66,7 @@ export default function AddVehiclePage() {
       // Auto-fill form
       setForm({
         brand: data.brand || "",
-        model: data.model || "",
+        model: data.fullModel || data.model || "",
         year: data.year || new Date().getFullYear(),
         body: data.body || "",
         fuel: data.fuel || "Bensin",
@@ -139,7 +100,7 @@ export default function AddVehiclePage() {
     setError("");
 
     try {
-      const saveData = {
+      const saveData: any = {
         brand: form.brand,
         model: form.model,
         year: Number(form.year),
@@ -153,36 +114,42 @@ export default function AddVehiclePage() {
         mileage: form.mileage ? Number(form.mileage) : 0,
         drive: form.drive || null,
         trans: form.trans || null,
-        // Pass through all lookup data
-        ...(lookupData
-          ? {
-              owners: lookupData.owners,
-              topSpeed: lookupData.topSpeed,
-              consumption: lookupData.consumption,
-              co2: lookupData.co2,
-              battery: lookupData.battery,
-              rangemi: lookupData.rangemi,
-              weight: lookupData.weight,
-              towCapacity: lookupData.towCapacity,
-              length: lookupData.length,
-              width: lookupData.width,
-              height: lookupData.height,
-              seats: lookupData.seats,
-              inspectionStatus: lookupData.inspectionStatus,
-              lastInspection: lookupData.lastInspection,
-              nextInspection: lookupData.nextInspection,
-              annualTax: lookupData.annualTax,
-              marketValue: lookupData.marketValue,
-              tires: lookupData.tires,
-              status: lookupData.inspectionStatus === "failed" ? "critical" : lookupData.inspectionStatus === "warning" ? "warning" : "ok",
-              statusText: lookupData.inspectionStatus === "failed"
-                ? "Besiktning utgången"
-                : lookupData.inspectionStatus === "warning"
-                ? "Besiktning snart"
-                : "Allt bra",
-            }
-          : {}),
       };
+
+      // Pass through all lookup data
+      if (lookupData) {
+        saveData.owners = lookupData.owners;
+        saveData.topSpeed = lookupData.topSpeed;
+        saveData.consumption = lookupData.consumption;
+        saveData.co2 = lookupData.co2;
+        saveData.battery = lookupData.battery;
+        saveData.rangemi = lookupData.rangemi;
+        saveData.weight = lookupData.weight;
+        saveData.towCapacity = lookupData.towCapacity;
+        saveData.length = lookupData.length;
+        saveData.width = lookupData.width;
+        saveData.height = lookupData.height;
+        saveData.seats = lookupData.seats;
+        saveData.inspectionStatus = lookupData.inspectionStatus;
+        saveData.lastInspection = lookupData.lastInspection;
+        saveData.nextInspection = lookupData.nextInspection;
+        saveData.annualTax = lookupData.annualTax;
+        saveData.tires = lookupData.tires;
+
+        // Set status based on inspection & vehicle status
+        if (lookupData.inspectionStatus === "failed" || lookupData.inspectionStatus === "deregistered") {
+          saveData.status = "critical";
+          saveData.statusText = lookupData.inspectionStatus === "deregistered"
+            ? "Avregistrerad"
+            : "Besiktning utgången";
+        } else if (lookupData.inspectionStatus === "approved") {
+          saveData.status = "ok";
+          saveData.statusText = "Allt bra";
+        } else {
+          saveData.status = "ok";
+          saveData.statusText = "Allt bra";
+        }
+      }
 
       const res = await fetch("/api/vehicles", {
         method: "POST",
@@ -207,7 +174,6 @@ export default function AddVehiclePage() {
   };
 
   const formatRegno = (val: string) => {
-    // Auto-format: ABC 123
     const clean = val.toUpperCase().replace(/[^A-Z0-9]/g, "");
     if (clean.length > 3) {
       return clean.slice(0, 3) + " " + clean.slice(3, 6);
@@ -242,7 +208,6 @@ export default function AddVehiclePage() {
             </label>
             <div className="flex gap-3">
               <div className="relative flex-1">
-                {/* Swedish license plate style input */}
                 <div className="absolute left-0 top-0 bottom-0 w-10 bg-blue-600 rounded-l-lg flex items-center justify-center">
                   <span className="text-white text-xs font-bold">S</span>
                 </div>
@@ -290,8 +255,8 @@ export default function AddVehiclePage() {
                 </div>
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2 text-sm">
                   <div>
-                    <span className="text-gray-400">Märke/Modell:</span>{" "}
-                    <span className="font-medium">{lookupData.brand} {lookupData.model}</span>
+                    <span className="text-gray-400">Fordon:</span>{" "}
+                    <span className="font-medium">{lookupData.fullModel || `${lookupData.brand} ${lookupData.model}`}</span>
                   </div>
                   <div>
                     <span className="text-gray-400">Årsmodell:</span>{" "}
@@ -299,11 +264,11 @@ export default function AddVehiclePage() {
                   </div>
                   <div>
                     <span className="text-gray-400">Färg:</span>{" "}
-                    <span className="font-medium">{lookupData.color || "—"}</span>
+                    <span className="font-medium">{lookupData.exteriorColor || lookupData.color || "—"}</span>
                   </div>
                   <div>
-                    <span className="text-gray-400">Bränsle:</span>{" "}
-                    <span className="font-medium">{lookupData.fuel}</span>
+                    <span className="text-gray-400">Drivmedel:</span>{" "}
+                    <span className="font-medium">{lookupData.fuel}{lookupData.evConfig ? ` (${lookupData.evConfig})` : ""}</span>
                   </div>
                   {lookupData.hp && (
                     <div>
@@ -311,28 +276,39 @@ export default function AddVehiclePage() {
                       <span className="font-medium">{lookupData.hp} hk</span>
                     </div>
                   )}
-                  {lookupData.mileage > 0 && (
+                  {lookupData.consumption && (
                     <div>
-                      <span className="text-gray-400">Mätarställning:</span>{" "}
-                      <span className="font-medium">{lookupData.mileage.toLocaleString("sv-SE")} mil</span>
+                      <span className="text-gray-400">Förbrukning:</span>{" "}
+                      <span className="font-medium">{lookupData.consumption}</span>
                     </div>
                   )}
-                  {lookupData.marketValue && (
+                  {lookupData.annualTax > 0 && (
                     <div>
-                      <span className="text-gray-400">Uppskattad värdering:</span>{" "}
-                      <span className="font-medium text-green-400">
-                        {lookupData.marketValue.toLocaleString("sv-SE")} kr
-                      </span>
+                      <span className="text-gray-400">Fordonsskatt:</span>{" "}
+                      <span className="font-medium">{lookupData.annualTax.toLocaleString("sv-SE")} kr/år</span>
                     </div>
                   )}
-                  {lookupData.stolen && (
-                    <div className="col-span-2 text-red-400 font-bold">
-                      ⚠️ FORDONET ÄR STULET / EFTERLYST
+                  {lookupData.owners > 0 && (
+                    <div>
+                      <span className="text-gray-400">Antal ägare:</span>{" "}
+                      <span className="font-medium">{lookupData.owners} st</span>
+                    </div>
+                  )}
+
+                  {/* Warnings */}
+                  {lookupData.status === "Avregistrerad" && (
+                    <div className="col-span-2 mt-1 text-yellow-400 font-medium">
+                      ⚠️ Fordonet är avregistrerat
                     </div>
                   )}
                   {lookupData.inspectionStatus === "failed" && (
-                    <div className="col-span-2 text-red-400">
-                      🔴 Besiktning utgången (giltig t.o.m. {lookupData.nextInspection})
+                    <div className="col-span-2 mt-1 text-red-400">
+                      🔴 Besiktning utgången
+                    </div>
+                  )}
+                  {lookupData.stolen && (
+                    <div className="col-span-2 mt-1 text-red-400 font-bold">
+                      ⚠️ FORDONET ÄR STULET / EFTERLYST
                     </div>
                   )}
                 </div>
@@ -340,7 +316,7 @@ export default function AddVehiclePage() {
             )}
           </div>
 
-          {/* Manual Entry / Edit Form */}
+          {/* Form */}
           <div ref={formRef} className={`transition-opacity duration-500 ${looked || !lookupData ? "opacity-100" : "opacity-50"}`}>
             <div className="bg-[#111] border border-gray-800 rounded-xl p-6 mb-6">
               <h2 className="text-lg font-semibold mb-4">
@@ -348,7 +324,6 @@ export default function AddVehiclePage() {
               </h2>
 
               <div className="grid grid-cols-2 gap-4">
-                {/* Brand */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Märke *</label>
                   <input
@@ -359,8 +334,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* Model */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Modell *</label>
                   <input
@@ -371,8 +344,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* Year */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Årsmodell</label>
                   <input
@@ -384,8 +355,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* Fuel */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Bränsle *</label>
                   <select
@@ -402,8 +371,6 @@ export default function AddVehiclePage() {
                     <option>Gas</option>
                   </select>
                 </div>
-
-                {/* Color */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Färg</label>
                   <input
@@ -414,8 +381,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* HP */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Hästkrafter</label>
                   <input
@@ -426,8 +391,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* Body */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Karosstyp</label>
                   <select
@@ -444,10 +407,9 @@ export default function AddVehiclePage() {
                     <option>Cabriolet</option>
                     <option>Pickup</option>
                     <option>Minibuss</option>
+                    <option>Personbil</option>
                   </select>
                 </div>
-
-                {/* Transmission */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Växellåda</label>
                   <select
@@ -460,8 +422,6 @@ export default function AddVehiclePage() {
                     <option>Manuell</option>
                   </select>
                 </div>
-
-                {/* Drive */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Drivning</label>
                   <select
@@ -476,20 +436,16 @@ export default function AddVehiclePage() {
                     <option>4WD</option>
                   </select>
                 </div>
-
-                {/* Mileage */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Mätarställning (mil)</label>
                   <input
                     type="number"
                     value={form.mileage}
                     onChange={(e) => setForm({ ...form, mileage: e.target.value })}
-                    placeholder="85000"
+                    placeholder="8500"
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500"
                   />
                 </div>
-
-                {/* License plate */}
                 <div>
                   <label className="text-xs text-gray-400 block mb-1">Registreringsnummer</label>
                   <input
@@ -500,8 +456,6 @@ export default function AddVehiclePage() {
                     className="w-full bg-[#1a1a1a] border border-gray-700 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-blue-500 font-mono"
                   />
                 </div>
-
-                {/* VIN */}
                 <div className="col-span-2">
                   <label className="text-xs text-gray-400 block mb-1">Chassinummer (VIN)</label>
                   <input
@@ -514,11 +468,11 @@ export default function AddVehiclePage() {
                 </div>
               </div>
 
-              {/* Additional info from lookup */}
+              {/* Auto-fetched data */}
               {lookupData && (
                 <div className="mt-6 pt-4 border-t border-gray-800">
                   <h3 className="text-sm font-medium text-gray-300 mb-3">
-                    Automatiskt hämtad data (sparas med fordonet)
+                    Hämtad data från Biluppgifter
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs">
                     {lookupData.consumption && (
@@ -557,10 +511,10 @@ export default function AddVehiclePage() {
                         <span>{lookupData.euroClass}</span>
                       </div>
                     )}
-                    {lookupData.owners > 0 && (
+                    {lookupData.cylinderVolume && (
                       <div className="bg-[#1a1a1a] rounded px-3 py-2">
-                        <span className="text-gray-500">Ägare:</span>{" "}
-                        <span>{lookupData.owners} st</span>
+                        <span className="text-gray-500">Cylindervolym:</span>{" "}
+                        <span>{lookupData.cylinderVolume} cc</span>
                       </div>
                     )}
                     {lookupData.annualTax > 0 && (
@@ -577,7 +531,7 @@ export default function AddVehiclePage() {
                     )}
                     {lookupData.firstRegistered && (
                       <div className="bg-[#1a1a1a] rounded px-3 py-2">
-                        <span className="text-gray-500">Först registrerad:</span>{" "}
+                        <span className="text-gray-500">Registrerad:</span>{" "}
                         <span>{lookupData.firstRegistered}</span>
                       </div>
                     )}
@@ -587,19 +541,41 @@ export default function AddVehiclePage() {
                         <span>{lookupData.tires.front}</span>
                       </div>
                     )}
-                    {lookupData.battery && (
+                    {lookupData.length && (
                       <div className="bg-[#1a1a1a] rounded px-3 py-2">
-                        <span className="text-gray-500">Batteri:</span>{" "}
-                        <span>{lookupData.battery}</span>
+                        <span className="text-gray-500">Längd:</span>{" "}
+                        <span>{lookupData.length}</span>
                       </div>
                     )}
-                    {lookupData.rangemi && (
+                    {lookupData.width && (
                       <div className="bg-[#1a1a1a] rounded px-3 py-2">
-                        <span className="text-gray-500">Räckvidd:</span>{" "}
-                        <span>{lookupData.rangemi}</span>
+                        <span className="text-gray-500">Bredd:</span>{" "}
+                        <span>{lookupData.width}</span>
+                      </div>
+                    )}
+                    {lookupData.seats && (
+                      <div className="bg-[#1a1a1a] rounded px-3 py-2">
+                        <span className="text-gray-500">Passagerare:</span>{" "}
+                        <span>{lookupData.seats} st</span>
                       </div>
                     )}
                   </div>
+
+                  {/* Owner History */}
+                  {lookupData.ownerHistory && lookupData.ownerHistory.length > 0 && (
+                    <div className="mt-4">
+                      <h3 className="text-sm font-medium text-gray-300 mb-2">Ägarhistorik</h3>
+                      <div className="space-y-1">
+                        {lookupData.ownerHistory.map((owner: any, i: number) => (
+                          <div key={i} className="flex items-center gap-3 bg-[#1a1a1a] rounded px-3 py-2 text-xs">
+                            <span className="text-gray-500 w-24 shrink-0">{owner.date}</span>
+                            <span className="font-medium">{owner.name}</span>
+                            {owner.city && <span className="text-gray-500">({owner.city})</span>}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
