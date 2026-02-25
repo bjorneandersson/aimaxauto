@@ -1015,54 +1015,54 @@ const VEHICLES=[
 ];
 
 const NOTIFS=[
-{id:1,type:"inspection",title:"Besiktning idag!",desc:"Ford F-150 (DEF 456) ska besiktas idag.",date:"Today",vId:2,urgent:true,read:false,aira:false},
-{id:2,type:"service",title:"Service snart",desc:"Ford F-150 — 120 mil kvar.",date:"Today",vId:2,urgent:true,read:false,aira:false},
-{id:3,type:"inspection",title:"Besiktning underkänd",desc:"Honda CR-V — ombesiktning senast 28 feb.",date:"Dec 1",vId:3,urgent:true,read:false,aira:false},
-{id:10,type:"value",title:"⚡ AIRA: Your Tesla is rising in value",desc:"The market price for Tesla Model Y Long Range has increased 2.7% in the last month. Your vehicle is now valued at $41,500. This could be a good time to sell — want me to do a deeper analysis?",date:"Today",vId:1,urgent:false,read:false,aira:true},
-{id:11,type:"insurance",title:"⚡ AIRA: Insurance expiring soon",desc:"Your Ford F-150 has GEICO Full Coverage expiring 2026-04-15. I've compared 3 alternatives: State Farm ($178/mo), Progressive ($165/mo) and your current GEICO ($185/mo). You could save $240/year.",date:"Today",vId:2,urgent:false,read:false,aira:true},
-{id:12,type:"service",title:"⚡ AIRA: Optimize your service cost",desc:"Your Honda CR-V needs brake rotors resurfaced. I've found 3 shops near you: Mekonomen Bromma ($380), Firestone Pasadena ($420), Meineke Burbank ($350). Your Premium discount at Pep Boys saves you $50.",date:"Yesterday",vId:3,urgent:true,read:false,aira:true},
-{id:13,type:"value",title:"⚡ AIRA: Weekly report — Your garage",desc:"Summary: Total garage value $137,200 (+0.8% this week). 2 actions needed. Monthly cost: $1,245. Next event: Ford smog check today.",date:"Yesterday",vId:null,urgent:false,read:false,aira:true},
-{id:4,type:"garage",title:"Garageuppdatering",desc:"Vehicle (7ABC123) has been added.",date:"23 days ago",vId:1,urgent:false,read:false,aira:false},
-{id:5,type:"garage",title:"Garageuppdatering",desc:"Vehicle (8DEF456) has been added.",date:"4 months ago",vId:2,urgent:false,read:true,aira:false},
-{id:6,type:"offer",title:"New Offer Available!",desc:"20% off service at Pep Boys (valid until Feb 28 2026).",date:"4 months ago",vId:null,urgent:false,read:true,aira:false},
-{id:7,type:"comment",title:"New Comment",desc:'James Mitchell commented: "great post"',date:"17 days ago",vId:null,urgent:false,read:true,aira:false}
+{id:1,type:"inspection",title:"Besiktning idag!",desc:"Ford F-150 (DEF 456) ska besiktas idag.",date:"Idag",vId:2,urgent:true,read:false,aira:false},
+{id:2,type:"service",title:"Service snart",desc:"Ford F-150 — 120 mil kvar.",date:"Idag",vId:2,urgent:true,read:false,aira:false},
+{id:3,type:"inspection",title:"Besiktning underkänd",desc:"Honda CR-V — ombesiktning senast 28 feb.",date:"1 dec",vId:3,urgent:true,read:false,aira:false},
+{id:10,type:"value",title:"⚡ AIRA: Din Tesla stiger i värde",desc:"Marknadspriset för Tesla Model Y Long Range har ökat 2,7% senaste månaden. Ditt fordon värderas nu till 415 000 kr. Det kan vara ett bra läge att sälja — vill du att jag gör en djupare analys?",date:"Idag",vId:1,urgent:false,read:false,aira:true},
+{id:11,type:"insurance",title:"⚡ AIRA: Försäkring löper ut snart",desc:"Din Ford F-150 har If helförsäkring som löper ut 2026-04-15. Jag har jämfört 3 alternativ: Länsförsäkringar (1 780 kr/mån), Folksam (1 650 kr/mån) och din nuvarande If (1 850 kr/mån). Du kan spara 2 400 kr/år.",date:"Idag",vId:2,urgent:false,read:false,aira:true},
+{id:12,type:"service",title:"⚡ AIRA: Optimera din servicekostnad",desc:"Din Honda CR-V behöver svarva bromsskivorna. Jag hittade 3 verkstäder nära dig: Mekonomen Bromma (3 800 kr), Autoexperten Sundbyberg (4 200 kr), Mekano Solna (3 500 kr). Din Premium-rabatt på Mekonomen sparar 500 kr.",date:"Igår",vId:3,urgent:true,read:false,aira:true},
+{id:13,type:"value",title:"⚡ AIRA: Veckorapport — Ditt garage",desc:"Sammanfattning: Totalt garagevärde 1 372 000 kr (+0,8% denna vecka). 2 åtgärder behövs. Månadskostnad: 12 450 kr. Nästa händelse: Ford besiktning idag.",date:"Igår",vId:null,urgent:false,read:false,aira:true},
+{id:4,type:"garage",title:"Garageuppdatering",desc:"Fordon (ABC 123) har lagts till.",date:"23 dagar sedan",vId:1,urgent:false,read:false,aira:false},
+{id:5,type:"garage",title:"Garageuppdatering",desc:"Fordon (DEF 456) har lagts till.",date:"4 månader sedan",vId:2,urgent:false,read:true,aira:false},
+{id:6,type:"offer",title:"Nytt erbjudande tillgängligt!",desc:"20% rabatt på service hos Mekonomen (gäller t.o.m. 28 feb 2026).",date:"4 månader sedan",vId:null,urgent:false,read:true,aira:false},
+{id:7,type:"comment",title:"Ny kommentar",desc:"Björn Andersson kommenterade: \"bra inlägg\"",date:"17 dagar sedan",vId:null,urgent:false,read:true,aira:false}
 ];
 
 const FEED=[
-{id:200,type:"alert",text:"🔑 **YETI | Model Y** — Rear driver side door has been left open.",time:"Just now",alertType:"vehicle"},
-{id:100,user:{name:"AIRA",handle:"@aira",av:"⚡",verified:true},text:"📊 **Monthly Garage Report**\n\nTotal garage value: **$126,400** (+0.3%)\n\n🟢 Tesla Model Y — Excellent (100/100)\n🟡 Ford F-150 — Needs attention (70/100)\n🔴 Honda CR-V — Action required (20/100)\n🟡 BMW X3 — Smog check due\n\n⚠️ 2 urgent actions pending.",time:"1h",likes:0,cmts:0,shares:0,liked:false,type:"aira_insight"},
-{id:1,user:{name:"Jessica Rivera",handle:"@jess_r",av:"J"},text:"Just got the keys to my new CR-V Hybrid! 🎉🔑 AIRA negotiated $2,400 below sticker price. The whole process through Aimaxauto Sales took 3 days — from valuation to signing. Best car buying experience I've ever had!",img:"https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&auto=format&q=80",time:"2h",likes:87,cmts:23,shares:14,liked:false,type:"post"},
-{id:201,type:"alert",text:"⚠️ **AIRA** — Your Ford F-150 smog check expires Feb 27. I found 3 stations within 5 miles — tap to book.",time:"2h",alertType:"deadline"},
-{id:2,user:{name:"Sarah Johnson",handle:"@sarah_j",av:"S"},text:"Anyone switch to Michelin CrossClimate 2 on their F-150? Compared to BF Goodrich KO2? Love the all-weather capability but worried about tread life 🛞",time:"3h",likes:18,cmts:12,shares:1,liked:false,type:"post"},
-{id:10,type:"post",user:{name:"Aimaxauto Editorial",handle:"@aimaxauto",av:"📰"},text:"**2026 Tesla Model Y Refresh — What's New**\n\nTesla's updated Model Y brings a redesigned interior, improved range up to 320 miles, and a controversial new front-end design. Dual motor AWD starts at $47,990.\n\n_Read more on aimaxauto.com_",time:"3h",likes:112,cmts:34,shares:28,liked:false},
-{id:3,user:{name:"Marcus Thompson",handle:"@marcus_t",av:"M"},text:"150,000 miles on my F-150 EcoBoost and she's still running like day one! Just finished the annual service at Pep Boys — new plugs, fluid flush, and alignment. These trucks are BUILT. 💪🔧",img:"https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1200&auto=format&q=80",time:"5h",likes:156,cmts:42,shares:31,liked:false,type:"post"},
-{id:101,user:{name:"AIRA",handle:"@aira",av:"⚡",verified:true},text:"💰 **Market Tip:** Tesla Model Y Long Range held steady this month while the broader market dipped 1.2%. Strong EV demand is protecting your value. Your Model Y is now worth **$41,500** — up $1,700 since you bought it.\n\n#markettip #tesla #ev",time:"6h",likes:8,cmts:2,shares:0,liked:false,type:"aira_insight"},
-{id:4,user:{name:"Eric Chen",handle:"@eric_ev",av:"E"},text:"Charged my Ioniq 5 from 10% to 80% in 18 min at Electrify America off I-5. 800V architecture makes all the difference! ⚡",img:"data:image/jpeg;base64,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",time:"7h",likes:42,cmts:8,shares:7,liked:false,type:"post"},
-{id:11,type:"post",user:{name:"Auto Market Weekly",handle:"@automarket",av:"📊"},text:"**Used Car Market Update: February 2026**\n\nUsed car prices remain elevated with inventory still 12% below pre-pandemic levels. Average transaction price: $28,500. Trucks and SUVs continue to hold value best while sedans see 3-5% declines.\n\n_Auto Market Weekly_",time:"8h",likes:67,cmts:15,shares:19,liked:false},
-{id:5,user:{name:"Maria Torres",handle:"@maria_t",av:"M"},text:"Best hand car wash in LA? My black Tesla shows every water spot 😅 Need something gentler than a drive-through.",time:"9h",likes:11,cmts:19,shares:0,liked:false,type:"post"},
-{id:6,user:{name:"David & Kim Park",handle:"@theparks",av:"D"},text:"Road trip from LA to Yellowstone in the Model Y! 🏔️ Autopilot handled 90% of the highway driving. Supercharger stops were fast — longest wait was 22 min. 2,400 miles and the whole family loved it.",img:"https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200&auto=format&q=80",time:"10h",likes:203,cmts:47,shares:38,liked:false,type:"post"},
-{id:12,type:"post",user:{name:"Electrify Report",handle:"@electrify",av:"⚡"},text:"**EV Charging Infrastructure — The 2026 Landscape**\n\nTesla Superchargers now open to all EVs at 60% of US stations. ChargePoint adds 8,000 ultra-fast stalls. Average wait time down 40% year-over-year.\n\n_Electrify Report_",time:"12h",likes:94,cmts:27,shares:33,liked:false},
-{id:7,user:{name:"Ashley Nguyen",handle:"@ashley_n",av:"A"},text:"AIRA just saved me from a disaster. Got an alert that my insurance was about to lapse — turns out my auto-pay failed! Renewed in 2 minutes through the app. Could've been driving uninsured without knowing 😱🛡️",time:"14h",likes:89,cmts:15,shares:22,liked:false,type:"post"},
-{id:8,user:{name:"Brian O'Neill",handle:"@brian_o",av:"B"},text:"Selling my BMW iX 2022 — M Sport, HUD, Harman Kardon. Listed via AutoAD PRO and got 3 inquiries in 24 hours! The AI photos and description look like a professional dealer listing 🚀",img:"data:image/jpeg;base64,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",time:"16h",likes:31,cmts:9,shares:5,liked:false,type:"post"},
-{id:202,type:"alert",text:"📉 **AIRA** — Your BMW X3 dropped $1,200 in value this week. Luxury SUV segment trending down. Tap for full analysis.",time:"18h",alertType:"value"},
-{id:13,type:"post",user:{name:"Aimaxauto Analysis",handle:"@aimaxauto",av:"📰"},text:"**How Much Does It Really Cost to Own an EV?**\n\nWe tracked 10 popular EVs over 3 years. Average: $0.04/mile for electricity vs $0.12/mile for gas. But insurance costs 15% more. Full breakdown inside.\n\n_Aimaxauto Analysis_",time:"20h",likes:145,cmts:52,shares:38,liked:false},
-{id:9,user:{name:"Björn Andersson",handle:"@bjornandersson",av:"J",verified:true},text:"Just had a fender bender on the 405 😤 AIRA immediately connected me with State Farm, filed the claim, and found me a certified Tesla body shop 3 miles away. Had a rental booked within the hour. This is why I pay for Premium.",img:"https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&auto=format&q=80",time:"1d",likes:67,cmts:28,shares:11,liked:false,type:"post"},
-{id:14,type:"post",user:{name:"Consumer Auto Guide",handle:"@consumerauto",av:"📰"},text:"**5 Things to Check Before Buying a Used Honda CR-V**\n\nRust-prone rear fenders, CVT longevity, AC compressor recalls, oil dilution (2017-2019), and real-world MPG vs EPA claims.\n\n_Consumer Auto Guide_",time:"1d",likes:78,cmts:21,shares:16,liked:false},
-{id:16,user:{name:"Mike Rodriguez",handle:"@mike_r",av:"M"},text:"Just used AIRA to compare insurance quotes — switching from Allstate to State Farm saves me $480/yr on my X3. Took 2 minutes! This platform is seriously underrated. 🛡💰",time:"1d",likes:34,cmts:7,shares:5,liked:false,type:"post"},
-{id:15,type:"post",user:{name:"Aimaxauto Research",handle:"@aimaxauto",av:"📰"},text:"**Depreciation Report: Which Cars Hold Value Best in 2026?**\n\nTop 3 value holders: Toyota Tacoma (-8%), Tesla Model Y (-12%), Ford Bronco (-14%). Worst: BMW 5-Series (-38%), Mercedes E-Class (-35%).\n\n_Aimaxauto Research_",time:"2d",likes:201,cmts:45,shares:52,liked:false},
-{id:17,user:{name:"Lisa Nakamura",handle:"@lisa_n",av:"L"},text:"Update on my CR-V Hybrid after 6 months: 42 MPG in real-world driving, AIRA tracking every dollar spent. Total ownership cost so far: $0.28/mile including insurance. The Ownership Cost tab is addictive 📊",img:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&auto=format&q=80",time:"2d",likes:45,cmts:13,shares:8,liked:false,type:"post"},
-{id:18,user:{name:"Carlos Mendez",handle:"@carlos_m",av:"C"},text:"150k service done on the F-150 ✅ Mechanic said the engine looks incredible for the mileage. AIRA's maintenance reminders kept me on schedule every single time. These alerts literally saved my engine. 🔧",img:"https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?w=1200&auto=format&q=80",time:"3d",likes:92,cmts:18,shares:12,liked:false,type:"post"}
+{id:200,type:"alert",text:"🔑 **YETI | Model Y** — Bakre dörren på förarsidan har lämnats öppen.",time:"Just nu",alertType:"vehicle"},
+{id:100,user:{name:"AIRA",handle:"@aira",av:"⚡",verified:true},text:"📊 **Månadsrapport Garage**\n\nTotalt garagevärde: **1 264 000 kr** (+0,3%)\n\n🟢 Tesla Model Y — Utmärkt (100/100)\n🟡 Ford F-150 — Behöver åtgärd (70/100)\n🔴 Honda CR-V — Åtgärd krävs (20/100)\n🟡 BMW X3 — Besiktning snart\n\n⚠️ 2 brådskande åtgärder.",time:"1t",likes:0,cmts:0,shares:0,liked:false,type:"aira_insight"},
+{id:1,user:{name:"Emma Lindqvist",handle:"@emma_l",av:"E"},text:"Precis fått nycklarna till min nya CR-V Hybrid! 🎉🔑 AIRA förhandlade ner priset 24 000 kr under listpris. Hela processen via Aimaxauto tog 3 dagar — från värdering till signering. Bästa bilköpsupplevelsen jag haft!",img:"https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&auto=format&q=80",time:"2t",likes:87,cmts:23,shares:14,liked:false,type:"post"},
+{id:201,type:"alert",text:"⚠️ **AIRA** — Din Ford F-150 ska besiktas senast 27 feb. Jag hittade 3 stationer inom 5 km — tryck för att boka.",time:"2t",alertType:"deadline"},
+{id:2,user:{name:"Erik Johansson",handle:"@erik_j",av:"E"},text:"Någon som bytt till Michelin CrossClimate 2 på sin F-150? Jämfört med BF Goodrich KO2? Gillar allväderkapaciteten men orolig för mönsterlivslängden 🛞",time:"3t",likes:18,cmts:12,shares:1,liked:false,type:"post"},
+{id:10,type:"post",user:{name:"Aimaxauto Redaktion",handle:"@aimaxauto",av:"📰"},text:"**2026 Tesla Model Y Refresh — Vad är nytt**\n\nTeslas uppdaterade Model Y har omdesignad interiör, förbättrad räckvidd upp till 515 km och en omdiskuterad ny frontdesign. Dual motor AWD börjar på 479 900 kr.\n\n_Läs mer på aimaxauto.com_",time:"3t",likes:112,cmts:34,shares:28,liked:false},
+{id:3,user:{name:"Marcus Bergström",handle:"@marcus_b",av:"M"},text:"15 000 mil på min F-150 EcoBoost och den går som ny! Precis klar med årsservice på Mekonomen — nya tändstift, vätskebyte och hjulinställning. Dessa pickuper är BYGGDA för att hålla. 💪🔧",img:"https://images.unsplash.com/photo-1615906655593-ad0386982a0f?w=1200&auto=format&q=80",time:"5t",likes:156,cmts:42,shares:31,liked:false,type:"post"},
+{id:101,user:{name:"AIRA",handle:"@aira",av:"⚡",verified:true},text:"💰 **Marknadstips:** Tesla Model Y Long Range höll sig stabilt denna månad medan den bredare marknaden sjönk 1,2%. Stark elbilsefterfrågan skyddar ditt värde. Din Model Y värderas nu till **415 000 kr** — upp 17 000 kr sedan du köpte den.\n\n#marknadstips #tesla #elbil",time:"6t",likes:8,cmts:2,shares:0,liked:false,type:"aira_insight"},
+{id:4,user:{name:"Sofia Ekström",handle:"@sofia_ev",av:"S"},text:"Laddade min Ioniq 5 från 10% till 80% på 18 min vid Ionity utanför Norrköping. 800V-arkitekturen gör hela skillnaden! ⚡",img:"data:image/jpeg;base64,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",time:"7t",likes:42,cmts:8,shares:7,liked:false,type:"post"},
+{id:11,type:"post",user:{name:"Bilmarknaden Veckan",handle:"@bilmarknaden",av:"📊"},text:"**Begagnatmarknaden februari 2026**\n\nBegagnatpriserna ligger kvar på höga nivåer med utbudet fortfarande 12% under pre-pandeminivåer. Genomsnittligt transaktionspris: 285 000 kr. SUV:ar och pickuper behåller värdet bäst medan sedaner tappar 3-5%.\n\n_Bilmarknaden Veckan_",time:"8t",likes:67,cmts:15,shares:19,liked:false},
+{id:5,user:{name:"Maria Sundström",handle:"@maria_s",av:"M"},text:"Bästa handtvätten i Stockholm? Min svarta Tesla visar varje vattenfläck 😅 Behöver något skonsamt.",time:"9t",likes:11,cmts:19,shares:0,liked:false,type:"post"},
+{id:6,user:{name:"David & Kim Park",handle:"@theparks",av:"D"},text:"Roadtrip från Stockholm till Nordkap i Model Y! 🏔️ Autopilot hanterade 90% av motorvägskörningen. Supercharger-stoppen var snabba — längsta väntan var 22 min. 3 800 km och hela familjen älskade det.",img:"https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200&auto=format&q=80",time:"10t",likes:203,cmts:47,shares:38,liked:false,type:"post"},
+{id:12,type:"post",user:{name:"Elbilar Sverige",handle:"@elbilar_se",av:"⚡"},text:"**Laddinfrastruktur — Läget 2026**\n\nTesla Superchargers nu öppna för alla elbilar vid 60% av svenska stationer. Ionity lägger till 800 nya snabbladdare. Genomsnittlig väntetid ner 40% jämfört med föregående år.\n\n_Elbilar Sverige_",time:"12t",likes:94,cmts:27,shares:33,liked:false},
+{id:7,user:{name:"Anna Björk",handle:"@anna_b",av:"A"},text:"AIRA räddade mig precis från en katastrof. Fick en varning om att min försäkring höll på att gå ut — visade sig att autobetalningen misslyckades! Förnyade på 2 minuter via appen. Kunde ha kört oförsäkrad utan att veta 😱🛡️",time:"14t",likes:89,cmts:15,shares:22,liked:false,type:"post"},
+{id:8,user:{name:"Johan Nilsson",handle:"@johan_n",av:"J"},text:"Säljer min BMW iX 2022 — M Sport, HUD, Harman Kardon. Lade ut via AutoAD PRO och fick 3 förfrågningar på 24 timmar! AI-fotona och beskrivningen ser ut som en proffsig handlarannons 🚀",img:"data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExIWFhUXFxYVFhcVFhUYFxgYFxcXFhcXFhgYHSggGBolGxUXITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGhAQGislHx0tLS0tLS0tLS0tLSstLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAKgBKwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAAAwQFBgcCAQj/xABGEAACAQIDBQQGBgYIBgMAAAABAhEAAwQSITEFQVFhcQYTIoGRBzJCobHBFCNSYtHhFUNygpLwM1NjorKz0hZEY3Oi8f/EABkBAQEBAQEBAAAAAAAAAAAAAAABAgMEBf/EACQRAQACAgICAgMAAwAAAAAAAAABEQISAyExE0FRBDJhFCJx/9oADAMBAAIRAxEAPwDdKKKKAoqO2xtuzh7ZuXnCKOZ39FG8+VZR2j9MQJKYKyGHAvoT5qvq+RaKDcK8JrAdm+lDaDErdEqfvBJI/hIK+6tD7P9copied",time:"16t",likes:31,cmts:9,shares:5,liked:false,type:"post"},
+{id:202,type:"alert",text:"📉 **AIRA** — Din BMW X3 tappade 12 000 kr i värde denna vecka. Lyxiga SUV-segmentet trendar nedåt. Tryck för full analys.",time:"18t",alertType:"value"},
+{id:13,type:"post",user:{name:"Aimaxauto Analys",handle:"@aimaxauto",av:"📰"},text:"**Vad kostar det egentligen att äga en elbil?**\n\nVi följde 10 populära elbilar under 3 år. Genomsnitt: 0,40 kr/km för el mot 1,20 kr/km för bensin. Men försäkringskostnaden är 15% högre. Fullständig genomgång.\n\n_Aimaxauto Analys_",time:"20t",likes:145,cmts:52,shares:38,liked:false},
+{id:9,user:{name:"Björn Andersson",handle:"@bjornandersson",av:"B",verified:true},text:"Hade precis en liten krock på E4:an 😤 AIRA kopplade mig direkt med Länsförsäkringar, skickade in skadeanmälan och hittade en certifierad Tesla-verkstad 3 km bort. Hade en hyrbil bokad inom en timme. Det är därför jag betalar för Premium.",img:"https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1200&auto=format&q=80",time:"1d",likes:67,cmts:28,shares:11,liked:false,type:"post"},
+{id:14,type:"post",user:{name:"Bilguiden",handle:"@bilguiden",av:"📰"},text:"**5 saker att kolla innan du köper en begagnad Honda CR-V**\n\nRostbenägna bakre skärmar, CVT-livslängd, AC-kompressor-återkallelser, oljeförtunning (2017-2019) och verklig förbrukning vs officiella siffror.\n\n_Bilguiden_",time:"1d",likes:78,cmts:21,shares:16,liked:false},
+{id:16,user:{name:"Lars Pettersson",handle:"@lars_p",av:"L"},text:"Använde AIRA för att jämföra försäkringsofferter — bytet från Trygg-Hansa till Länsförsäkringar sparar mig 4 800 kr/år på min X3. Tog 2 minuter! Den här plattformen är allvarligt underskattad. 🛡💰",time:"1d",likes:34,cmts:7,shares:5,liked:false,type:"post"},
+{id:15,type:"post",user:{name:"Aimaxauto Research",handle:"@aimaxauto",av:"📰"},text:"**Värdeminskningsrapport: Vilka bilar behåller värdet bäst 2026?**\n\nTopp 3: Toyota RAV4 (-8%), Tesla Model Y (-12%), Volvo XC40 (-14%). Sämst: BMW 5-Serie (-38%), Mercedes E-klass (-35%).\n\n_Aimaxauto Research_",time:"2d",likes:201,cmts:45,shares:52,liked:false},
+{id:17,user:{name:"Lisa Ström",handle:"@lisa_s",av:"L"},text:"Uppdatering om min CR-V Hybrid efter 6 månader: 0,42 l/mil i verklig körning, AIRA spårar varje krona. Total ägandekostnad hittills: 2,80 kr/km inklusive försäkring. Ägandekostnad-fliken är beroendeframkallande 📊",img:"https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=1200&auto=format&q=80",time:"2d",likes:45,cmts:13,shares:8,liked:false,type:"post"},
+{id:18,user:{name:"Carlos Mendez",handle:"@carlos_m",av:"C"},text:"15 000-milsservice klar på F-150 ✅ Mekanikern sa att motorn ser otrolig ut för körsträckan. AIRAs underhållspåminnelser har hållit mig i schemat varje gång. De varningarna räddade bokstavligen min motor. 🔧",img:"https://images.unsplash.com/photo-1645445522156-9ac06bc7a767?w=1200&auto=format&q=80",time:"3d",likes:92,cmts:18,shares:12,liked:false,type:"post"}
 ];
 
 const COMMUNITY=[
-{id:301,user:{name:"Jake Morrison",handle:"@jakemoto",av:"J"},text:"Anyone else notice their Model Y range dropping in cold weather? Getting about 260mi vs the rated 330. Is this normal for winter in Chicago?",likes:24,comments:8,time:"2h"},
-{id:302,user:{name:"Lisa Park",handle:"@lisadrive",av:"L"},text:"Just switched from Allstate to State Farm through AIRA — saving $47/month on my CR-V. Same coverage. Why didn't I do this sooner? 🤯",likes:56,comments:12,time:"4h"},
-{id:303,user:{name:"Marcus Rodriguez",handle:"@marcusrodz",av:"M"},text:"PSA: Pep Boys on Wilshire has 20% off brake pads this week. Just got mine done on the F-150, great service as always.",likes:18,comments:4,time:"6h"},
-{id:304,user:{name:"Sarah Kim",handle:"@sarahkim_ev",av:"S"},text:"Road trip report: LA to Vegas in the Ioniq 5. One charging stop, 18 min at Electrify America Baker. 800V is a game changer. Total cost: $12.40 ⚡",likes:89,comments:22,time:"8h"},
-{id:305,user:{name:"Tom Bradley",handle:"@tombrauto",av:"T"},text:"Thinking about trading my X3 for a new RAV4 Hybrid. Anyone made a similar switch? How's the reliability comparison?",likes:31,comments:15,time:"12h"},
-{id:306,user:{name:"Nina Patel",handle:"@ninadrives",av:"N"},text:"Just hit 100,000 miles on my 2019 Accord. AIRA says it's still worth $14,200. These Hondas hold value like crazy.",likes:42,comments:7,time:"1d"},
-{id:307,user:{name:"Chris Webb",handle:"@chriswebb4x4",av:"C"},text:"Installed a tonneau cover on the F-150 and gained about 1.5 MPG on the highway. Best $400 I've spent on this truck.",likes:67,comments:19,time:"1d"},
-{id:308,user:{name:"Emily Chen",handle:"@emilyauto",av:"E"},text:"Question for Tesla owners: Is the Full Self-Driving subscription worth $99/mo? I mostly do highway commuting on the 101.",likes:23,comments:31,time:"2d"}
+{id:301,user:{name:"Fredrik Holm",handle:"@fredrikauto",av:"F"},text:"Någon mer som märkt att räckvidden på Model Y sjunker i kylan? Får ca 420 km mot angivna 530. Normalt för vinter i Norrland?",likes:24,comments:8,time:"2t"},
+{id:302,user:{name:"Lisa Persson",handle:"@lisakor",av:"L"},text:"Bytte precis från Trygg-Hansa till Länsförsäkringar via AIRA — sparar 470 kr/mån på min CR-V. Samma skydd. Varför gjorde jag inte det här tidigare? 🤯",likes:56,comments:12,time:"4t"},
+{id:303,user:{name:"Marcus Olsson",handle:"@marcusol",av:"M"},text:"Tips: Mekonomen Bromma har 20% rabatt på bromsbelägg den här veckan. Precis fixat min F-150, bra service som alltid.",likes:18,comments:4,time:"6t"},
+{id:304,user:{name:"Sara Kim",handle:"@sarakim_ev",av:"S"},text:"Roadtrip-rapport: Stockholm till Göteborg i Ioniq 5. Ett laddstopp, 18 min vid Ionity Jönköping. 800V är en game changer. Total kostnad: 124 kr ⚡",likes:89,comments:22,time:"8t"},
+{id:305,user:{name:"Thomas Berg",handle:"@thomasauto",av:"T"},text:"Funderar på att byta min X3 mot en ny RAV4 Hybrid. Någon som gjort ett liknande byte? Hur är tillförlitligheten i jämförelse?",likes:31,comments:15,time:"12t"},
+{id:306,user:{name:"Nina Lindgren",handle:"@ninabil",av:"N"},text:"Precis passerat 10 000 mil på min Accord 2019. AIRA säger att den fortfarande är värd 142 000 kr. Honda behåller värdet som galningar.",likes:42,comments:7,time:"1d"},
+{id:307,user:{name:"Christoffer Wik",handle:"@chrisw4x4",av:"C"},text:"Monterade ett flaklock på F-150 och sparade ca 0,15 l/mil på motorväg. Bästa 4 000 kr jag lagt på den här bilen.",likes:67,comments:19,time:"1d"},
+{id:308,user:{name:"Elin Eriksson",handle:"@elinauto",av:"E"},text:"Fråga till Tesla-ägare: Är Full Self-Driving-prenumerationen värd 990 kr/mån? Jag pendlar mest motorväg på E4.",likes:23,comments:31,time:"2d"}
 ];
 
 const ARTICLES={
@@ -1411,7 +1411,7 @@ style={{width:"100%",padding:"8px 12px",background:C.bg,border:"1px solid "+C.br
 {qvRes&&!qvRes.error&&<div style={{animation:"fadeIn .3s"}}>
 <div style={{textAlign:"center",padding:"8px 0",marginBottom:6,background:C.el,borderRadius:8}}>
 <div style={{fontSize:10,color:C.t3}}>{qvRes.v.brand} {qvRes.v.model} {qvRes.v.year}</div>
-<div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono,marginTop:2}}>{(qvRes.mv.totalValue||0).toLocaleString("sv-SE")} <span style={{fontSize:10,color:C.t3}}>USD</span></div>
+<div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono,marginTop:2}}>{(qvRes.mv.totalValue||0).toLocaleString("sv-SE")} <span style={{fontSize:10,color:C.t3}}>SEK</span></div>
 <div style={{fontSize:9,color:C.t3}}>Konfidens {qvRes.mv.confidence||0}/100</div></div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4,marginBottom:6}}>
 <div style={{textAlign:"center",padding:"6px 2px",background:C.el,borderRadius:6}}>
@@ -1429,7 +1429,7 @@ style={{width:"100%",padding:"8px 12px",background:C.bg,border:"1px solid "+C.br
 </div>
 {qvRes.best?<div style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"6px 8px",background:C.g+"12",border:"1px solid "+C.g+"30",borderRadius:6}}>
 <span style={{fontSize:10,color:C.g}}>Arbitrage {qvRes.best.country}</span>
-<span style={{fontSize:12,fontWeight:700,color:C.g,fontFamiy:mono}}>+{(qvRes.best.netVsHome||0).toLocaleString("sv-SE")} $</span>
+<span style={{fontSize:12,fontWeight:700,color:C.g,fontFamiy:mono}}>+{(qvRes.best.netVsHome||0).toLocaleString("sv-SE")} kr</span>
 </div>:<div style={{textAlign:"center",padding:"6px 8px",background:C.r+"10",border:"1px solid "+C.r+"25",borderRadius:6}}>
 <span style={{fontSize:10,color:C.r}}>No arbitrage found</span>
 </div>}
@@ -1572,7 +1572,7 @@ followUps=[{q:"Sell as-is — cash flow nu",ic:"💰"},{q:"Can shops offer payme
 
 else if((ql.includes("cost")||ql.includes("own")||ql.includes("month")||ql.includes("optim"))&&(ql.includes("volvo")||mCopy.lastVehicleFocus==="Chevrolet")){
 mCopy.lastVehicleFocus="Ford";
-response=`Monthly cost **Tesla Model Y Recharge**:\n\n🛡 Insurance (State Farm): **210 $/mo**\n📋 Registration: **$0/mo**\n🔧 Service (avg): **/mo**\n⚡ Charging: **/mo**\n💰 **Total: ~$345/mo**\n\nMen numbers without context don't help decisions. Here's how I see it:\n\n**What you can control:**`;
+response=`Monthly cost **Tesla Model Y Recharge**:\n\n🛡 Insurance (State Farm): **210 kr/mån**\n📋 Registration: **$0/mo**\n🔧 Service (avg): **/mo**\n⚡ Charging: **/mo**\n💰 **Total: ~$345/mo**\n\nMen numbers without context don't help decisions. Here's how I see it:\n\n**What you can control:**`;
 followUps=[{q:"Remind me about insurance in Juni",ic:"📅"},{q:"Compare all my vehicle costs",ic:"📊"},{q:"How do I lower charging costs?",ic:"⚡"}];
 }
 
@@ -2021,7 +2021,7 @@ return<div key={a.id} style={{background:C.card,border:"1px solid "+C.brd,border
 </div>}
 return<div style={{padding:"20px 0"}}>
 <div style={{fontSize:22,fontWeight:700,marginBottom:4}}>Explore</div>
-<div style={{fontSize:13,color:C.t2,marginBottom:20}}>Trending topics in vehicles and mobility</div>
+<div style={{fontSize:13,color:C.t2,marginBottom:20}}>Populära ämnen inom fordon och mobilitet</div>
 {topics.map(function(t,i){return<div key={t.id} onClick={function(){setSelTopic(t.id)}} style={{background:C.card,border:"1px solid "+C.brd,borderRadius:14,padding:"14px 18px",marginBottom:8,cursor:"pointer",display:"flex",alignItems:"center",gap:14}} onMouseOver={function(e){e.currentTarget.style.borderColor=C.o+"60"}} onMouseOut={function(e){e.currentTarget.style.borderColor=C.brd}}>
 <div style={{fontSize:18,width:36,textAlign:"center"}}>{t.ic}</div>
 <div style={{flex:1}}>
@@ -2075,7 +2075,7 @@ const timeline=[
 return<div>
 <div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`,backdropFilter:"blur(12px)"}}>
 <div style={{padding:"12px 20px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-<div><h1 style={{fontSize:20,fontWeight:700}}>MyGarage</h1><p style={{fontSize:14,color:C.t2,marginTop:4}}>Manage your vehicles and maintenance</p></div>
+<div><h1 style={{fontSize:20,fontWeight:700}}>MyGarage</h1><p style={{fontSize:14,color:C.t2,marginTop:4}}>Hantera dina fordon och underhåll</p></div>
 <div style={{display:"flex",gap:8}}>
 <button onClick={()=>setShowAdd(true)} style={{padding:"8px 16px",background:C.o,color:"#fff",borderRadius:9999,fontSize:13,fontWeight:600,cursor:"pointer"}}>+ Add Vehicle</button>
 <div style={{display:"flex",border:`1px solid ${C.brd}`,borderRadius:8,overflow:"hidden"}}>
@@ -2095,7 +2095,7 @@ return<div>
 <div style={{flex:1}}><div style={{fontSize:16,fontWeight:700}}>{vh.brand.toUpperCase()} {vh.model.split(" ")[0].toUpperCase()}</div><div style={{fontSize:13,color:C.t2}}>{vh.year} • {vh.color}</div></div>
 <HealthRing score={calcHealth(vh)} size={48}/></div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:"8px 20px"}}>
-{[["Plate",vh.reg],["Mil",vh.mi],["Insurance",vh.ins?vh.ins.co:"—"],["Value",vh.valP?vh.valP.toLocaleString("sv-SE")+" $":"—"]].map(([l,val])=>
+{[["Reg",vh.reg],["Mil",vh.mi],["Försäkring",vh.ins?vh.ins.co:"—"],["Värde",vh.valP?vh.valP.toLocaleString("sv-SE")+" kr":"—"]].map(([l,val])=>
 <div key={l}><div style={{fontSize:11,color:C.t3}}>{l}</div><div style={{fontSize:13,fontWeight:600}}>{val}</div></div>)}
 </div></div>)}</div>
 :
@@ -2108,13 +2108,13 @@ return<div>
 
 {showAdd&&<div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.7)",zIndex:100,display:"flex",alignItems:"center",justifyContent:"center"}} onClick={()=>{setShowAdd(false);setAddMode("menu");setRegRes(null);}}>
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:16,width:440,maxHeight:"80vh",overflow:"auto",padding:22}} onClick={e=>e.stopPropagation()}>
-<div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><span style={{fontSize:17,fontWeight:700}}>Add Vehicle</span><button onClick={()=>{setShowAdd(false);setAddMode("menu");}} style={{fontSize:18,color:C.t3,cursor:"pointer"}}>X</button></div>
-{addMode==="menu"&&<div style={{display:"grid",gap:8}}>{[["Plate","carfax.com","reg"],["car.info PDF","Auto-ifyllning","pdf"],["Manual","Steg for steg","man"]].map(([t,d,m])=><div key={m} onClick={()=>setAddMode(m)} style={{padding:12,background:C.el,borderRadius:8,cursor:"pointer",border:"1px solid "+C.brd}} onMouseOver={e=>e.currentTarget.style.borderColor=C.o} onMouseOut={e=>e.currentTarget.style.borderColor=C.brd}><div style={{fontSize:13,fontWeight:600}}>{t}</div><div style={{fontSize:10,color:C.t3}}>{d}</div></div>)}</div>}
-{addMode==="reg"&&<div><button onClick={()=>{setAddMode("menu");setRegRes(null);}} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Back</button><div style={{display:"flex",gap:8,marginBottom:12}}><input value={regIn} onChange={e=>setRegIn(e.target.value.toUpperCase())} placeholder="ABC123" maxLength={6} style={{flex:1,padding:10,background:C.el,border:"1px solid "+C.brd,borderRadius:8,color:C.t1,fontSize:18,fontFamiy:mono,letterSpacing:2,textAlign:"center"}}/><button onClick={()=>{if(regIn.length>=3)setRegRes({b:regIn==="YNN90U"?"Tesla":"Unknown",m:regIn==="YNN90U"?"Model X LR":"Searching...",y:2024});}} style={{padding:"10px 16px",background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Search</button></div>{regRes&&<div style={{background:C.el,borderRadius:8,padding:12,border:"1px solid "+C.g+"30"}}><b style={{color:C.g}}>Found: {regRes.b} {regRes.m} {regRes.y}</b><button onClick={()=>{toast("Added!");setShowAdd(false);setAddMode("menu");}} style={{marginTop:8,width:"100%",padding:9,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Add to MyGarage</button></div>}</div>}
-{addMode==="pdf"&&<div><button onClick={()=>setAddMode("menu")} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Back</button><div onClick={()=>{setRegRes({b:"Tesla",m:"Model X LR",y:2020});toast("PDF imported!");}} style={{border:"2px dashed "+C.brd,borderRadius:10,padding:28,textAlign:"center",cursor:"pointer"}}><div style={{fontSize:32}}>PDF</div><div style={{fontSize:12,fontWeight:600}}>Drop car.info PDF here</div></div>{regRes&&<div style={{marginTop:8,background:C.gD,borderRadius:8,padding:10}}><b style={{color:C.g}}>OK: {regRes.b} {regRes.m}</b><button onClick={()=>{toast("Added!");setShowAdd(false);setAddMode("menu");}} style={{marginTop:6,width:"100%",padding:8,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Add</button></div>}</div>}
-{addMode==="man"&&<div><button onClick={()=>setAddMode("menu")} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Back</button><div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>{["Reg","Make","Model","Year","Fuel","Power","Mileage","Color"].map(f=><div key={f}><label style={{fontSize:9,color:C.t3}}>{f}</label><input placeholder={f} style={{width:"100%",padding:"5px 8px",background:C.el,border:"1px solid "+C.brd,borderRadius:5,color:C.t1,fontSize:11}}/></div>)}</div><button onClick={()=>{toast("Added!");setShowAdd(false);}} style={{marginTop:10,width:"100%",padding:8,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Add</button></div>}
+<div style={{display:"flex",justifyContent:"space-between",marginBottom:12}}><span style={{fontSize:17,fontWeight:700}}>Lägg till fordon</span><button onClick={()=>{setShowAdd(false);setAddMode("menu");}} style={{fontSize:18,color:C.t3,cursor:"pointer"}}>X</button></div>
+{addMode==="menu"&&<div style={{display:"grid",gap:8}}>{[["Reg","carfax.com","reg"],["car.info PDF","Auto-ifyllning","pdf"],["Manual","Steg for steg","man"]].map(([t,d,m])=><div key={m} onClick={()=>setAddMode(m)} style={{padding:12,background:C.el,borderRadius:8,cursor:"pointer",border:"1px solid "+C.brd}} onMouseOver={e=>e.currentTarget.style.borderColor=C.o} onMouseOut={e=>e.currentTarget.style.borderColor=C.brd}><div style={{fontSize:13,fontWeight:600}}>{t}</div><div style={{fontSize:10,color:C.t3}}>{d}</div></div>)}</div>}
+{addMode==="reg"&&<div><button onClick={()=>{setAddMode("menu");setRegRes(null);}} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Tillbaka</button><div style={{display:"flex",gap:8,marginBottom:12}}><input value={regIn} onChange={e=>setRegIn(e.target.value.toUpperCase())} placeholder="ABC123" maxLength={6} style={{flex:1,padding:10,background:C.el,border:"1px solid "+C.brd,borderRadius:8,color:C.t1,fontSize:18,fontFamiy:mono,letterSpacing:2,textAlign:"center"}}/><button onClick={()=>{if(regIn.length>=3)setRegRes({b:regIn==="YNN90U"?"Tesla":"Unknown",m:regIn==="YNN90U"?"Model X LR":"Searching...",y:2024});}} style={{padding:"10px 16px",background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Search</button></div>{regRes&&<div style={{background:C.el,borderRadius:8,padding:12,border:"1px solid "+C.g+"30"}}><b style={{color:C.g}}>Found: {regRes.b} {regRes.m} {regRes.y}</b><button onClick={()=>{toast("Added!");setShowAdd(false);setAddMode("menu");}} style={{marginTop:8,width:"100%",padding:9,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Lägg till i Garaget</button></div>}</div>}
+{addMode==="pdf"&&<div><button onClick={()=>setAddMode("menu")} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Tillbaka</button><div onClick={()=>{setRegRes({b:"Tesla",m:"Model X LR",y:2020});toast("PDF imported!");}} style={{border:"2px dashed "+C.brd,borderRadius:10,padding:28,textAlign:"center",cursor:"pointer"}}><div style={{fontSize:32}}>PDF</div><div style={{fontSize:12,fontWeight:600}}>Drop car.info PDF here</div></div>{regRes&&<div style={{marginTop:8,background:C.gD,borderRadius:8,padding:10}}><b style={{color:C.g}}>OK: {regRes.b} {regRes.m}</b><button onClick={()=>{toast("Added!");setShowAdd(false);setAddMode("menu");}} style={{marginTop:6,width:"100%",padding:8,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Add</button></div>}</div>}
+{addMode==="man"&&<div><button onClick={()=>setAddMode("menu")} style={{fontSize:11,color:C.o,cursor:"pointer",marginBottom:8}}>Tillbaka</button><div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>{["Reg","Make","Model","Year","Fuel","Power","Mileage","Color"].map(f=><div key={f}><label style={{fontSize:9,color:C.t3}}>{f}</label><input placeholder={f} style={{width:"100%",padding:"5px 8px",background:C.el,border:"1px solid "+C.brd,borderRadius:5,color:C.t1,fontSize:11}}/></div>)}</div><button onClick={()=>{toast("Added!");setShowAdd(false);}} style={{marginTop:10,width:"100%",padding:8,background:C.o,color:"#fff",borderRadius:8,fontWeight:600,cursor:"pointer"}}>Add</button></div>}
 </div></div>}
-<div style={{marginBottom:10,display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:C.card,border:"1px solid "+C.brd,borderRadius:8}}><span>Photos</span><span style={{fontSize:10,color:C.t2,flex:1}}>0/25</span><button onClick={()=>toast("Photo gallery: exterior, interior, documents")} style={{padding:"2px 8px",background:C.o,color:"#fff",borderRadius:4,fontSize:9,fontWeight:600,cursor:"pointer"}}>Add Photos</button></div>
+<div style={{marginBottom:10,display:"flex",alignItems:"center",gap:6,padding:"6px 10px",background:C.card,border:"1px solid "+C.brd,borderRadius:8}}><span>Photos</span><span style={{fontSize:10,color:C.t2,flex:1}}>0/25</span><button onClick={()=>toast("Photo gallery: exterior, interior, documents")} style={{padding:"2px 8px",background:C.o,color:"#fff",borderRadius:4,fontSize:9,fontWeight:600,cursor:"pointer"}}>Lägg till bilder</button></div>
 {v.importSource&&<div style={{marginBottom:10,padding:"7px 10px",background:"#3b82f608",border:"1px solid #3b82f620",borderRadius:8,display:"flex",alignItems:"center",gap:6,fontSize:11}}><span>📄</span><b style={{color:"#3b82f6"}}>Imported via {v.importSource}</b></div>}
 
 <div style={{display:"flex",borderBottom:`1px solid ${C.brd}`,marginBottom:14,overflowX:"auto"}}>
@@ -2129,39 +2129,39 @@ return<div>
 <div style={{marginTop:4,padding:6,background:C.o+"06",borderRadius:4,borderLeft:"2px solid "+C.o+"40"}}><div style={{fontSize:8,fontWeight:700,color:C.o}}>Marknadsanalys</div><div style={{fontSize:10,color:C.t2,lineHeight:1.4}}>{airaDesc.sell}</div></div>
 <div style={{display:"flex",justifyContent:"flex-end",gap:4,marginTop:4}}><button onClick={()=>toast("Copyd!")} style={{padding:"2px 7px",background:C.el,color:C.t2,borderRadius:3,fontSize:9,cursor:"pointer",border:"1px solid "+C.brd}}>Copy</button><button onClick={()=>toast("AutoAD PRO...")} style={{padding:"2px 7px",background:C.o,color:"#fff",borderRadius:3,fontSize:9,fontWeight:600,cursor:"pointer",border:"none"}}>List</button></div></div></div>}
 {rv.homePrice&&<div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Market Valuering</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Marknadsvärdering</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6,marginBottom:8}}>
-<div style={{textAlign:"center",padding:6,background:C.el,borderRadius:5}}><div style={{fontSize:8,color:C.t3}}>Private Sale</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{(rv.homePrice/1000).toFixed(0)}k</div></div>
+<div style={{textAlign:"center",padding:6,background:C.el,borderRadius:5}}><div style={{fontSize:8,color:C.t3}}>Privatförsäljning</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{(rv.homePrice/1000).toFixed(0)}k</div></div>
 
-<div style={{textAlign:"center",padding:6,background:C.el,borderRadius:5}}><div style={{fontSize:8,color:C.t3}}>Trade-in</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{((rv.homePrice*1.02)/1000).toFixed(0)}k</div></div>
+<div style={{textAlign:"center",padding:6,background:C.el,borderRadius:5}}><div style={{fontSize:8,color:C.t3}}>Inbyte</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{((rv.homePrice*1.02)/1000).toFixed(0)}k</div></div>
 <div style={{textAlign:"center",padding:6,background:C.oD,borderRadius:5,border:"1px solid "+C.o+"30"}}><div style={{fontSize:8,color:C.o}}>Confidence</div><div style={{fontSize:15,fontWeight:700,color:C.o}}>{rv.confidence||"?"}</div></div></div></div>}
 {tco.monthly&&tco.monthly.total>0&&false&&<div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Total Ownership Cost</div>
-<div style={{textAlign:"center",padding:8,background:C.el,borderRadius:6,marginBottom:8}}><div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono}}>{Math.round(tco.monthly.total).toLocaleString("sv-SE")} $/mo</div></div>
-<div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:4}}>{[["Fuel",tco.monthly?.fuel||0,C.g],["Insurance",tco.monthly?.insurance||0,C.bl],["Tax",tco.monthly?.tax||0,"#f59e0b"],["Service",tco.monthly?.service||0,"#8b5cf6"],["Depreciation",tco.monthly?.depreciation||0,C.r],["Total",tco.monthly?.total||0,C.o]].map(([l,val,c])=><div key={l} style={{padding:4,background:C.el,borderRadius:3,textAlign:"center"}}><div style={{fontSize:7,color:C.t3}}>{l}</div><div style={{fontSize:10,fontWeight:700,color:c,fontFamiy:mono}}>{Math.round(val).toLocaleString("sv-SE")}</div></div>)}</div></div>}
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Total ägandekostnad</div>
+<div style={{textAlign:"center",padding:8,background:C.el,borderRadius:6,marginBottom:8}}><div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono}}>{Math.round(tco.monthly.total).toLocaleString("sv-SE")} kr/mån</div></div>
+<div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:4}}>{[["Bränsle",tco.monthly?.fuel||0,C.g],["Försäkring",tco.monthly?.insurance||0,C.bl],["Skatt",tco.monthly?.tax||0,"#f59e0b"],["Service",tco.monthly?.service||0,"#8b5cf6"],["Värdeminskning",tco.monthly?.depreciation||0,C.r],["Totalt",tco.monthly?.total||0,C.o]].map(([l,val,c])=><div key={l} style={{padding:4,background:C.el,borderRadius:3,textAlign:"center"}}><div style={{fontSize:7,color:C.t3}}>{l}</div><div style={{fontSize:10,fontWeight:700,color:c,fontFamiy:mono}}>{Math.round(val).toLocaleString("sv-SE")}</div></div>)}</div></div>}
 
 {mAlerts.length>0&&<div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Market Alerts</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Marknadsaviseringar</div>
 {mAlerts.slice(0,3).map((al,i)=><div key={i} style={{display:"flex",gap:6,padding:"4px 0",borderBottom:i<2?"1px solid "+C.brd+"30":"none"}}><span style={{fontSize:11}}>{al.icon||"i"}</span><div style={{flex:1}}><div style={{fontSize:10,fontWeight:600}}>{al.title||""}</div><div style={{fontSize:9,color:C.t2}}>{al.desc||""}</div></div></div>)}</div>}
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:16,marginBottom:20}}>
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,textAlign:"center"}} className="su">
-<div style={{fontSize:13,color:C.t2,marginBottom:12,fontWeight:500}}>Vehicle Health</div>
+<div style={{fontSize:13,color:C.t2,marginBottom:12,fontWeight:500}}>Fordonshälsa</div>
 <div style={{display:"flex",justifyContent:"center"}}><HealthRing score={health} size={100}/></div>
 <div style={{fontSize:12,color:health>=80?C.g:health>=50?C.a:C.r,marginTop:8,fontWeight:500}}>{health>=80?"Excellent":health>=50?"Needs Attention":"Action Required"}</div></div>
 
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20}} className="su">
-<div style={{fontSize:13,color:C.t2,marginBottom:12,fontWeight:500}}>Monthly Cost</div>
+<div style={{fontSize:13,color:C.t2,marginBottom:12,fontWeight:500}}>Månadskostnad</div>
 <div style={{fontSize:28,fontWeight:700,color:C.o,fontFamiy:mono}}>{(cost.ins+cost.tax+cost.serv+cost.fuel+(v.fin?.monthly||0)+cost.dep+(v.pay?.total||0)).toLocaleString("sv-SE")} <span style={{fontSize:12,fontWeight:400,color:C.t2}}>$/mo</span></div>
 <div style={{marginTop:12,display:"flex",flexDirection:"column",gap:5}}>
-{[["Depreciation",cost.dep,C.r],["Fuel",cost.fuel,"#ef4444"],["Insurance",cost.ins,C.bl],["Financing",v.fin?.monthly||0,"#8b5cf6"],["Tax",cost.tax,"#f59e0b"],["Service",cost.serv,C.g],["Extras",v.pay?.total||0,C.t2]].filter(([l,val])=>val>0).map(([l,val,c])=>
+{[["Värdeminskning",cost.dep,C.r],["Bränsle",cost.fuel,"#ef4444"],["Försäkring",cost.ins,C.bl],["Financing",v.fin?.monthly||0,"#8b5cf6"],["Skatt",cost.tax,"#f59e0b"],["Service",cost.serv,C.g],["Extras",v.pay?.total||0,C.t2]].filter(([l,val])=>val>0).map(([l,val,c])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
 <div style={{display:"flex",alignItems:"center",gap:6}}><div style={{width:8,height:8,borderRadius:2,background:c}}/><span style={{fontSize:11,color:C.t2}}>{l}</span></div>
-<span style={{fontSize:11,fontWeight:600}}>{val} $</span></div>)}</div></div>
+<span style={{fontSize:11,fontWeight:600}}>{val} kr</span></div>)}</div></div>
 
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20}} className="su">
 <div style={{fontSize:13,color:C.t2,marginBottom:12,fontWeight:500}}>Quick Info</div>
 <div style={{display:"flex",flexDirection:"column",gap:10}}>
-{[["Market Value",(v.valP||0).toLocaleString("sv-SE")+" $",C.o],["Mileage",v.mi+" mi",C.t1],["Owners",v.owners,C.t1],["Fuel",v.fuel,C.bl],["Power",v.hp+" hp",C.t1],["CO₂",v.co2,v.co2==="0 g/km"?C.g:C.t1]].map(([l,val,c])=>
+{[["Marknadsvärde",(v.valP||0).toLocaleString("sv-SE")+" kr",C.o],["Mätarställning",v.mi+" mil",C.t1],["Ägare",v.owners,C.t1],["Bränsle",v.fuel,C.bl],["Effekt",v.hp+" hk",C.t1],["CO₂",v.co2,v.co2==="0 g/km"?C.g:C.t1]].map(([l,val,c])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between"}}><span style={{fontSize:12,color:C.t2}}>{l}</span><span style={{fontSize:12,fontWeight:600,color:c}}>{val}</span></div>)}</div></div>
 </div>
 
@@ -2182,15 +2182,15 @@ return<div>
 <Badge color={d.sev==="critical"?C.r:d.sev==="moderate"?C.a:C.bl}>{d.sev}</Badge></div>)}</div>}
 
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:20}} className="su">
-<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Equipment Highlights</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Utrustningshöjdpunkter</div>
 <div style={{display:"flex",flexWrap:"wrap",gap:6}}>
 {v.equip.slice(0,12).map(eq=><span key={eq} style={{padding:"4px 10px",background:C.oD,borderRadius:6,fontSize:11,fontWeight:500,color:C.o}}>{eq}</span>)}
 {v.equip.length>12&&<span style={{padding:"4px 10px",background:C.el,borderRadius:6,fontSize:11,color:C.t3}}>+{v.equip.length-12} mer</span>}</div></div>
 
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
-<button onClick={()=>{setDetailView("d");const m=document.querySelector(".main-scroll");if(m)m.scrollTop=0;else window.scrollTo(0,0);}} style={{padding:14,background:C.o,color:"#fff",borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>View Details →</button>
+<button onClick={()=>{setDetailView("d");const m=document.querySelector(".main-scroll");if(m)m.scrollTop=0;else window.scrollTo(0,0);}} style={{padding:14,background:C.o,color:"#fff",borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Visa detaljer →</button>
 <button onClick={()=>{setDetailView("d");setDetailTab("sell");const m=document.querySelector(".main-scroll");if(m)m.scrollTop=0;else window.scrollTo(0,0);}} style={{padding:14,border:`1px solid #b89b5e`,color:"#b89b5e",borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Sälj din bil</button>
-<button onClick={()=>toast("Sharing...")} style={{padding:14,border:`1px solid ${C.brd}`,color:C.t1,borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Share Vehicle</button>
+<button onClick={()=>toast("Sharing...")} style={{padding:14,border:`1px solid ${C.brd}`,color:C.t1,borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Dela fordon</button>
 </div></div>}
 
 {detailView&&<div style={{padding:20}}>
@@ -2206,33 +2206,33 @@ return<div>
 <div style={{padding:"28px 24px",textAlign:"center"}}>
 <div style={{fontSize:24,fontWeight:700}}>{v.brand} {v.model}</div>
 <div style={{fontSize:15,color:C.t2,marginTop:6}}>{v.year} · {v.fuel} · {v.hp} hp · {v.drive}</div>
-<div style={{fontSize:26,fontWeight:700,color:C.o,fontFamiy:mono,marginTop:12}}>{(v.valP||0).toLocaleString("sv-SE")} <span style={{fontSize:13,color:C.t2,fontWeight:400}}>USD</span></div></div>
+<div style={{fontSize:26,fontWeight:700,color:C.o,fontFamiy:mono,marginTop:12}}>{(v.valP||0).toLocaleString("sv-SE")} <span style={{fontSize:13,color:C.t2,fontWeight:400}}>SEK</span></div></div>
 <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",borderTop:`1px solid ${C.brd}`}}>
-{[["Mileage",v.mi+" mi"],["Transmission",v.trans],["Drivetrain",v.drive],["0-100",v.accel||"—"]].map(([l,val])=>
+{[["Mätarställning",v.mi+" mil"],["Transmission",v.trans],["Drivetrain",v.drive],["0-100",v.accel||"—"]].map(([l,val])=>
 <div key={l} style={{padding:12,textAlign:"center",borderRight:`1px solid ${C.brd}40`}}><div style={{fontSize:10,color:C.t3}}>{l}</div><div style={{fontSize:13,fontWeight:600}}>{val}</div></div>)}</div></div>
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:16}}>
 <div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Basic Info</div>
-{[["Plate",v.reg],["VIN",v.vin],["Make",v.brand],["Model",v.model],["Year",String(v.year)],["Color",v.color],["Body",v.body],["Owners",v.owners+" st"],["Fuel",v.fuel]].map(([l,val])=>
+{[["Reg",v.reg],["VIN",v.vin],["Make",v.brand],["Model",v.model],["Year",String(v.year)],["Color",v.color],["Body",v.body],["Ägare",v.owners+" st"],["Bränsle",v.fuel]].map(([l,val])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between",padding:"10px 0",borderBottom:`1px solid ${C.brd}25`}}><span style={{fontSize:13,color:C.t2}}>{l}</span><span style={{fontSize:13,fontWeight:600}}>{val||"—"}</span></div>)}</div>
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:16}}>
 <div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Utrustning</div>
 <div style={{display:"flex",flexWrap:"wrap",gap:6}}>{v.equip.map(eq=><span key={eq} style={{padding:"5px 12px",background:C.oD,borderRadius:20,fontSize:12,color:C.o,fontWeight:500}}>{eq}</span>)}</div></div>
 
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Mileage & Insurance</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Mätarställning >Mileage & Insurance< Försäkring</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6,marginBottom:10}}>
-<div style={{padding:8,background:C.el,borderRadius:6}}><div style={{fontSize:9,color:C.t3}}>Calculated mileage/yr</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{v.estMil||"—"} <span style={{fontSize:10,fontWeight:400,color:C.t3}}>mi</span></div></div>
+<div style={{padding:8,background:C.el,borderRadius:6}}><div style={{fontSize:9,color:C.t3}}>Beräknad körsträcka/år</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{v.estMil||"—"} <span style={{fontSize:10,fontWeight:400,color:C.t3}}>mi</span></div></div>
 <div style={{padding:8,background:C.el,borderRadius:6}}><div style={{fontSize:9,color:C.t3}}>Current odometer</div><div style={{fontSize:15,fontWeight:700,fontFamiy:mono}}>{v.mi} <span style={{fontSize:10,fontWeight:400,color:C.t3}}>mi</span></div></div>
 </div>
 <div style={{padding:10,background:C.el,borderRadius:8,marginBottom:6}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
 <div style={{fontSize:13,fontWeight:700}}>{v.ins?.co||"—"}</div>
-<div style={{fontSize:12,fontWeight:600,color:C.o,fontFamiy:mono}}>{v.ins?.cost||0} $/mo</div></div>
+<div style={{fontSize:12,fontWeight:600,color:C.o,fontFamiy:mono}}>{v.ins?.cost||0} kr/mån</div></div>
 <div style={{fontSize:11,color:C.t2,marginBottom:4}}>{v.ins?.ty||""}</div>
 <div style={{fontSize:10,color:C.t3,lineHeight:1.5}}>{v.ins?.omf||""}</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4,marginTop:6}}>
-<div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Deductible</div><div style={{fontSize:11,fontWeight:600,fontFamiy:mono}}>{v.ins?.deductible?v.ins.deductible.toLocaleString("sv-SE")+" $":"—"}</div></div>
-<div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Discount</div><div style={{fontSize:11,fontWeight:600,fontFamiy:mono}}>{v.ins?.bonus?""+v.ins.bonus+"%":"—"}</div></div>
+<div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Självrisk</div><div style={{fontSize:11,fontWeight:600,fontFamiy:mono}}>{v.ins?.deductible?v.ins.deductible.toLocaleString("sv-SE")+" kr":"—"}</div></div>
+<div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Rabatt</div><div style={{fontSize:11,fontWeight:600,fontFamiy:mono}}>{v.ins?.bonus?""+v.ins.bonus+"%":"—"}</div></div>
 <div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Expires</div><div style={{fontSize:11,fontWeight:600}}>{v.ins?.valid||"—"}</div></div>
 </div>
 <div style={{display:"flex",gap:8,marginTop:6,flexWrap:"wrap"}}>
@@ -2245,12 +2245,12 @@ return<div>
 </div>
 
 {(v.gar?.length>0||v.fin)&&<div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:14,marginBottom:10}} className="su">
-<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Warranty & Financing</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:10}}>Garanti >Warranty & Financing< Finansiering</div>
 {v.gar?.map((g,i)=><div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"5px 0",borderBottom:i<v.gar.length-1?"1px solid "+C.brd+"20":"none"}}><div><div style={{fontSize:12,fontWeight:600,color:g.note?.includes("expired")?C.t3:C.t1}}>{g.ty}</div><div style={{fontSize:10,color:C.t3}}>{g.note}</div></div><div style={{fontSize:10,fontWeight:600,color:g.note?.includes("expired")?C.r:C.g}}>{g.note?.includes("expired")?"Expired":"Active"}</div></div>)}
 {v.fin&&<div style={{marginTop:8,padding:10,background:C.oD,borderRadius:8,border:"1px solid "+C.o+"20"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:6}}>
 <div style={{fontSize:13,fontWeight:700,color:C.o}}>{v.fin.ty}</div>
-<div style={{fontSize:15,fontWeight:700,fontFamiy:mono,color:C.o}}>{v.fin.monthly?.toLocaleString("sv-SE")} $/mo</div></div>
+<div style={{fontSize:15,fontWeight:700,fontFamiy:mono,color:C.o}}>{v.fin.monthly?.toLocaleString("sv-SE")} kr/mån</div></div>
 <div style={{fontSize:11,color:C.t2,marginBottom:6}}>{v.fin.co}</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:4,marginBottom:6}}>
 <div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Rate</div><div style={{fontSize:11,fontWeight:600}}>{v.fin.rate}</div></div>
@@ -2258,20 +2258,20 @@ return<div>
 <div style={{padding:"4px 6px",background:C.card,borderRadius:4,textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>End Date</div><div style={{fontSize:11,fontWeight:600}}>{v.fin.end}</div></div>
 </div>
 {v.fin.rest>0&&<div style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:11}}>
-<span style={{color:C.t3}}>Remaining Balance</span><span style={{fontWeight:600,fontFamiy:mono}}>{v.fin.rest?.toLocaleString("sv-SE")} $</span></div>}
+<span style={{color:C.t3}}>Återstående skuld</span><span style={{fontWeight:600,fontFamiy:mono}}>{v.fin.rest?.toLocaleString("sv-SE")} kr</span></div>}
 {v.fin.orig>0&&<div style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:11}}>
-<span style={{color:C.t3}}>Original Loan</span><span style={{fontWeight:600,fontFamiy:mono}}>{v.fin.orig?.toLocaleString("sv-SE")} $</span></div>}
+<span style={{color:C.t3}}>Original Loan</span><span style={{fontWeight:600,fontFamiy:mono}}>{v.fin.orig?.toLocaleString("sv-SE")} kr</span></div>}
 {v.fin.apr&&v.fin.apr!=="—"&&<div style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:11}}>
 <span style={{color:C.t3}}>APR</span><span style={{fontWeight:600}}>{v.fin.apr}</span></div>}
 {v.fin.mieLimit&&<div style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:11}}>
-<span style={{color:C.t3}}>Mileage limit</span><span style={{fontWeight:600}}>{v.fin.mieLimit} <span style={{color:C.t3,fontWeight:400}}>({v.fin.overMile} $/overMile)</span></span></div>}
+<span style={{color:C.t3}}>Milgräns</span><span style={{fontWeight:600}}>{v.fin.mieLimit} <span style={{color:C.t3,fontWeight:400}}>({v.fin.overMile} $/overMile)</span></span></div>}
 {v.fin.inkl&&<div style={{fontSize:10,color:C.g,marginTop:4}}>Inkluderar: {v.fin.inkl}</div>}
 </div>}
 </div>}
 </div>}
 
 {detailTab==="tech"&&<div>
-{[["Engine & Drivetrain",[["Fuel",v.fuel],["Power",v.hp+" hp"],["Transmission",v.trans],["Drivetrain",v.drive],["0-100",v.accel]]],["Fuel Economy",[["Fuel Economy",v.cons],["CO₂",v.co2],["Battery",v.batt||"—"]]],["Dimensions",[["Length",v.len||"—"],["Width",v.wid||"—"],["Weight",v.weight||"—"],["Tow Capacity",v.tow||"—"],["Seats",v.seats||"—"]]]].map(([title,fields])=>
+{[["Engine & Drivetrain",[["Bränsle",v.fuel],["Effekt",v.hp+" hk"],["Transmission",v.trans],["Drivetrain",v.drive],["0-100",v.accel]]],["Fuel Economy",[["Fuel Economy",v.cons],["CO₂",v.co2],["Battery",v.batt||"—"]]],["Dimensions",[["Length",v.len||"—"],["Width",v.wid||"—"],["Weight",v.weight||"—"],["Tow Capacity",v.tow||"—"],["Seats",v.seats||"—"]]]].map(([title,fields])=>
 <div key={title} style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:16}}>
 <div style={{fontSize:14,fontWeight:700,marginBottom:12}}>{title}</div>
 {fields.map(([l,val])=><div key={l} style={{display:"flex",justifyContent:"space-between",padding:"10px 0",borderBottom:`1px solid ${C.brd}25`}}><span style={{fontSize:13,color:C.t2}}>{l}</span><span style={{fontSize:13,fontWeight:600}}>{val||"—"}</span></div>)}</div>)}</div>}
@@ -2282,7 +2282,7 @@ return<div>
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:20,marginBottom:14}}>
 <div style={{textAlign:"center",marginBottom:12}}>
 <div style={{fontSize:11,color:C.t3,marginBottom:4}}>Marknadsvärde</div>
-<div style={{fontSize:34,fontWeight:700,color:C.o,fontFamiy:mono}}>{(v.valP||mv.totalValue||0).toLocaleString("sv-SE")} <span style={{fontSize:16}}>USD</span></div>
+<div style={{fontSize:34,fontWeight:700,color:C.o,fontFamiy:mono}}>{(v.valP||mv.totalValue||0).toLocaleString("sv-SE")} <span style={{fontSize:16}}>SEK</span></div>
 <div style={{display:"inline-flex",alignItems:"center",gap:5,marginTop:6,padding:"3px 10px",background:mv.confidence>70?C.g+"18":mv.confidence>40?C.o+"18":C.r+"18",borderRadius:20}}>
 <div style={{width:6,height:6,borderRadius:3,background:mv.confidence>70?C.g:mv.confidence>40?C.o:C.r}}/>
 <span style={{fontSize:11,color:mv.confidence>70?C.g:mv.confidence>40?C.o:C.r}}>Konfidens {mv.confidence||0}/100 · {mv.tier1Count||0} listings analyzed</span>
@@ -2305,10 +2305,10 @@ return<div>
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:16,marginBottom:14}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
 <span style={{fontSize:14,fontWeight:600}}>Ägandekostnad</span>
-<span style={{fontSize:18,fontWeight:700,color:C.o,fontFamiy:mono}}>{((tco.monthly?.depreciation||0)+(tco.monthly?.fuel||0)+(tco.monthly?.insurance||v.ins?.cost||0)+(v.fin?.monthly||0)+(tco.monthly?.tax||0)+(tco.monthly?.service||0)+(tco.monthly?.tires||0)+(v.pay?.total||0)).toLocaleString("sv-SE")} $/mo</span>
+<span style={{fontSize:18,fontWeight:700,color:C.o,fontFamiy:mono}}>{((tco.monthly?.depreciation||0)+(tco.monthly?.fuel||0)+(tco.monthly?.insurance||v.ins?.cost||0)+(v.fin?.monthly||0)+(tco.monthly?.tax||0)+(tco.monthly?.service||0)+(tco.monthly?.tires||0)+(v.pay?.total||0)).toLocaleString("sv-SE")} kr/mån</span>
 </div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:6}}>
-{[["Depreciation",tco.monthly?.depreciation||0],["Fuel",tco.monthly?.fuel||0],["Insurance",tco.monthly?.insurance||v.ins?.cost||0],["Financing",v.fin?.monthly||0],["Tax",tco.monthly?.tax||0],["Service",tco.monthly?.service||0],["Tires",tco.monthly?.tires||0],["AimaxPAY Extras",v.pay?.total||0]].filter(([l,val])=>val>0).map(([l,val])=>
+{[["Värdeminskning",tco.monthly?.depreciation||0],["Bränsle",tco.monthly?.fuel||0],["Försäkring",tco.monthly?.insurance||v.ins?.cost||0],["Financing",v.fin?.monthly||0],["Skatt",tco.monthly?.tax||0],["Service",tco.monthly?.service||0],["Tires",tco.monthly?.tires||0],["AimaxPAY Extras",v.pay?.total||0]].filter(([l,val])=>val>0).map(([l,val])=>
 <div key={l} style={{textAlign:"center",padding:"6px 4px",background:C.el,borderRadius:6}}>
 <div style={{fontSize:9,color:C.t3}}>{l}</div>
 <div style={{fontSize:13,fontWeight:600,fontFamiy:mono}}>{(val||0).toLocaleString("sv-SE")} <span style={{fontSize:9,color:C.t3}}>$/mo</span></div></div>)}
@@ -2335,7 +2335,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 {/* EU OPPORTUNITY — teaser */}
 {cm.results&&cm.results.length>0&&cm.results[0].isOpportunity&&<div style={{background:"linear-gradient(135deg,#1a1814,#1e1a12)",border:"1px solid "+C.o+"30",borderRadius:12,padding:16}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-<div><div style={{fontSize:13,fontWeight:600,color:C.o}}>EU Market</div>
+<div><div style={{fontSize:13,fontWeight:600,color:C.o}}>EU-marknad</div>
 <div style={{fontSize:11,color:C.t3}}>Your car may be worth more in {cm.results[0].country}</div></div>
 <div style={{fontSize:16,fontWeight:700,color:C.g,fontFamiy:mono}}>+{(cm.results[0].netVsHome||0).toLocaleString("sv-SE")}</div>
 </div></div>}
@@ -2344,31 +2344,31 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 
 {detailTab==="service"&&<div>
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20,marginBottom:16}}>
-<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Service & Inspection</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Service >Service & Inspection< Besiktning</div>
 {[["Last Service",v.servLast],["Next Service",v.servNext],["Last Inspection",v.insp],["Next Inspection",v.nextInsp],["Insurance Provider",v.ins?.co||"—"],["Insurance Valid",v.ins?.valid||"—"]].map(([l,val])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between",padding:"10px 0",borderBottom:`1px solid ${C.brd}25`}}><span style={{fontSize:13,color:C.t2}}>{l}</span><span style={{fontSize:13,fontWeight:600}}>{val||"—"}</span></div>)}</div>
 {v.devs?.length>0&&<div style={{background:C.card,border:`1px solid ${C.r}20`,borderRadius:12,padding:20,marginBottom:16}}>
 <div style={{fontSize:16,fontWeight:700,color:C.r,marginBottom:14}}>Issues</div>
 {v.devs.map((d,i)=><div key={i} style={{display:"flex",gap:10,padding:"8px 0",borderTop:i?`1px solid ${C.brd}`:"none"}}><span style={{width:8,height:8,borderRadius:4,marginTop:5,background:d.sev==="critical"?C.r:C.a,flexShrink:0}}/><div><div style={{fontSize:13,fontWeight:600}}>{d.area}</div><div style={{fontSize:12,color:C.t2}}>{d.desc}</div></div></div>)}</div>}
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10}}>
-<button onClick={()=>toast("Book Service...")} style={{padding:14,background:C.o,color:"#fff",borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Book Service</button>
-<button onClick={()=>toast("Book Inspection...")} style={{padding:14,border:`1px solid ${C.o}`,color:C.o,borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Book Inspection</button></div>
+<button onClick={()=>toast("Book Service...")} style={{padding:14,background:C.o,color:"#fff",borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Boka service</button>
+<button onClick={()=>toast("Book Inspection...")} style={{padding:14,border:`1px solid ${C.o}`,color:C.o,borderRadius:10,fontSize:13,fontWeight:600,cursor:"pointer"}}>Boka besiktning</button></div>
 
 
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:16,marginBottom:14}}>
-<div style={{fontSize:15,fontWeight:700,marginBottom:12}}>Digital Service Log</div>
+<div style={{fontSize:15,fontWeight:700,marginBottom:12}}>Digital servicelogg</div>
 {v.servInterval&&<div style={{padding:8,background:C.el,borderRadius:8,marginBottom:10,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
 <div><div style={{fontSize:11,fontWeight:600}}>Service Interval: {v.servInterval.typ}</div><div style={{fontSize:10,color:C.t3}}>Every {(v.servInterval.miInterval/10).toLocaleString("sv-SE")} mi or {v.servInterval.timeInterval}</div></div>
-<div style={{textAlign:"right"}}><div style={{fontSize:10,color:C.t3}}>Next Service</div><div style={{fontSize:11,fontWeight:600,color:v.servInterval.next?.includes("OVERDUE")?C.r:C.t1}}>{v.servInterval.next||"—"}</div></div>
+<div style={{textAlign:"right"}}><div style={{fontSize:10,color:C.t3}}>Nästa service</div><div style={{fontSize:11,fontWeight:600,color:v.servInterval.next?.includes("OVERDUE")?C.r:C.t1}}>{v.servInterval.next||"—"}</div></div>
 </div>}
 {v.servBook?.map((s,i)=><div key={i} style={{padding:"10px 0",borderBottom:i<v.servBook.length-1?"1px solid "+C.brd+"20":"none"}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:4}}>
 <div style={{fontSize:12,fontWeight:600}}>{s.type}</div>
-<div style={{fontSize:12,fontWeight:600,fontFamiy:mono,color:C.o}}>{s.cost?.toLocaleString("sv-SE")} $</div></div>
+<div style={{fontSize:12,fontWeight:600,fontFamiy:mono,color:C.o}}>{s.cost?.toLocaleString("sv-SE")} kr</div></div>
 <div style={{fontSize:10,color:C.t3,marginBottom:4}}>{s.date} · {s.mi} mil · {s.workshop}</div>
 <div style={{display:"flex",flexWrap:"wrap",gap:4}}>{s.items?.map((it,j)=><span key={j} style={{fontSize:9,padding:"2px 6px",background:C.el,borderRadius:4,color:C.t2}}>{it}</span>)}</div>
 </div>)}
-{!v.servBook?.length&&<div style={{textAlign:"center",padding:16,color:C.t3,fontSize:12}}>No service history recorded</div>}
+{!v.servBook?.length&&<div style={{textAlign:"center",padding:16,color:C.t3,fontSize:12}}>Ingen servicehistorik registrerad</div>}
 <div style={{display:"flex",gap:8,marginTop:12}}>
 <button onClick={()=>{toast("📷 Photograph each page of your service book");setTimeout(()=>toast("🔍 AIRA is reading your service book (multi-page)..."),2000);setTimeout(()=>toast("✅ Service book scanned! 4 entries added. AIRA cost: $0.85"),4500)}} style={{flex:1,padding:"10px 12px",background:"transparent",border:"1px solid "+C.o,borderRadius:8,color:C.o,fontSize:11,fontWeight:600,cursor:"pointer",textAlign:"center"}}>📷 Scan Analog Service Book</button>
 <button onClick={()=>{toast("🔗 Connecting to manufacturer...");setTimeout(()=>toast("🔄 Importing service history from Tesla Service..."),1500);setTimeout(()=>toast("✅ Digital service book imported! 6 entries synced from Tesla. Import fee: $2.00"),3000)}} style={{flex:1,padding:"10px 12px",background:C.o,border:"none",borderRadius:8,color:"#fff",fontSize:11,fontWeight:600,cursor:"pointer",textAlign:"center"}}>🔗 Import from Manufacturer</button>
@@ -2384,7 +2384,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 <div style={{fontSize:12,fontWeight:600}}>{v.tyres.summer?.brand} {v.tyres.summer?.model}</div>
 <div style={{fontSize:10,color:C.t3,marginBottom:4}}>{v.tyres.summer?.dim}</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4}}>
-<div><div style={{fontSize:8,color:C.t3}}>Tread Depth</div><div style={{fontSize:11,fontWeight:600,color:parseFloat(v.tyres.summer?.depth)<4?C.r:parseFloat(v.tyres.summer?.depth)<5?C.a:C.g}}>{v.tyres.summer?.depth}</div></div>
+<div><div style={{fontSize:8,color:C.t3}}>Mönsterdjup</div><div style={{fontSize:11,fontWeight:600,color:parseFloat(v.tyres.summer?.depth)<4?C.r:parseFloat(v.tyres.summer?.depth)<5?C.a:C.g}}>{v.tyres.summer?.depth}</div></div>
 <div><div style={{fontSize:8,color:C.t3}}>År</div><div style={{fontSize:11,fontWeight:600}}>{v.tyres.summer?.age}</div></div>
 </div>
 <div style={{marginTop:4,display:"flex",gap:4}}>
@@ -2396,7 +2396,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 <div style={{fontSize:12,fontWeight:600}}>{v.tyres.winter?.brand} {v.tyres.winter?.model}</div>
 <div style={{fontSize:10,color:C.t3,marginBottom:4}}>{v.tyres.winter?.dim}</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:4}}>
-<div><div style={{fontSize:8,color:C.t3}}>Tread Depth</div><div style={{fontSize:11,fontWeight:600,color:parseFloat(v.tyres.winter?.depth)<5?C.r:parseFloat(v.tyres.winter?.depth)<6?C.a:C.g}}>{v.tyres.winter?.depth}</div></div>
+<div><div style={{fontSize:8,color:C.t3}}>Mönsterdjup</div><div style={{fontSize:11,fontWeight:600,color:parseFloat(v.tyres.winter?.depth)<5?C.r:parseFloat(v.tyres.winter?.depth)<6?C.a:C.g}}>{v.tyres.winter?.depth}</div></div>
 <div><div style={{fontSize:8,color:C.t3}}>År</div><div style={{fontSize:11,fontWeight:600}}>{v.tyres.winter?.age}</div></div>
 </div>
 <div style={{marginTop:4,display:"flex",gap:4}}>
@@ -2406,7 +2406,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 </div>
 <div style={{padding:8,background:C.el,borderRadius:8,display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:6}}>
 <div style={{textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Last Change</div><div style={{fontSize:11,fontWeight:600}}>{v.tyres.lastSwap}</div></div>
-<div style={{textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Next skifte</div><div style={{fontSize:11,fontWeight:600,color:C.o}}>{v.tyres.nextSwap}</div></div>
+<div style={{textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Nästa skifte</div><div style={{fontSize:11,fontWeight:600,color:C.o}}>{v.tyres.nextSwap}</div></div>
 <div style={{textAlign:"center"}}><div style={{fontSize:8,color:C.t3}}>Storage</div><div style={{fontSize:11,fontWeight:600}}>{v.tyres.storage}</div></div>
 </div>
 </div>}
@@ -2417,7 +2417,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 {detailTab==="photos"&&<div>
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,padding:16,marginBottom:14}}>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:12}}>
-<div style={{fontSize:15,fontWeight:700}}>Vehicle Photos</div>
+<div style={{fontSize:15,fontWeight:700}}>Fordonsbilder</div>
 <div style={{fontSize:11,color:C.t3}}>Max 25 bilder</div></div>
 <div style={{display:"grid",gridTemplateColumns:"repeat(3,1fr)",gap:6,marginBottom:12}}>
 <div style={{aspectRatio:"4/3",borderRadius:8,overflow:"hidden",position:"relative",border:"2px solid "+C.o}}>
@@ -2460,20 +2460,20 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 
 <div style={{background:"linear-gradient(135deg,#12110e,#1a1814)",border:"1px solid #b89b5e30",borderRadius:14,padding:"32px 24px",marginBottom:16,textAlign:"center"}}>
 <div style={{fontSize:10,color:"#b89b5e",fontWeight:600,letterSpacing:"0.12em",textTransform:"uppercase",marginBottom:10}}>AUTOAD PRO</div>
-<div style={{fontSize:22,fontWeight:600,color:"#fff",lineHeight:1.3,marginBottom:8}}>Create a Professional Listing</div>
+<div style={{fontSize:22,fontWeight:600,color:"#fff",lineHeight:1.3,marginBottom:8}}>Skapa en professionell annons</div>
 <div style={{fontSize:13,color:"#8a8a96",maxWidth:340,margin:"0 auto",lineHeight:1.5}}>AI generates four listing styles. Publish on 12+ platforms.</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,maxWidth:360,margin:"20px auto 0"}}>
 <div style={{padding:"10px 6px",background:"rgba(184,155,94,0.08)",borderRadius:8,textAlign:"center",border:"1px solid rgba(184,155,94,0.2)"}}>
 <div style={{fontSize:9,color:"#b89b5e"}}>Quick Sale</div>
 <div style={{fontSize:16,fontWeight:700,color:"#fff",fontFamiy:mono}}>{Math.round((v.valP||0)*0.95).toLocaleString("sv-SE")}</div></div>
 <div style={{padding:"10px 6px",background:"rgba(184,155,94,0.15)",borderRadius:8,textAlign:"center",border:"1px solid rgba(184,155,94,0.4)"}}>
-<div style={{fontSize:9,color:"#b89b5e",fontWeight:600}}>Listing Price</div>
+<div style={{fontSize:9,color:"#b89b5e",fontWeight:600}}>Annonspris</div>
 <div style={{fontSize:16,fontWeight:700,color:"#b89b5e",fontFamiy:mono}}>{(v.valP||0).toLocaleString("sv-SE")}</div></div>
 <div style={{padding:"10px 6px",background:"rgba(184,155,94,0.08)",borderRadius:8,textAlign:"center",border:"1px solid rgba(184,155,94,0.2)"}}>
 <div style={{fontSize:9,color:"#b89b5e"}}>Optimistic</div>
 <div style={{fontSize:16,fontWeight:700,color:"#fff",fontFamiy:mono}}>{Math.round((v.valP||0)*1.05).toLocaleString("sv-SE")}</div></div>
 </div>
-<button onClick={()=>toast("Öppnar AutoAD PRO...")} style={{marginTop:20,padding:"12px 32px",background:"#b89b5e",border:"none",color:"#fff",fontSize:12,fontWeight:600,letterSpacing:"0.04em",cursor:"pointer",borderRadius:4}}>Create Listing →</button>
+<button onClick={()=>toast("Öppnar AutoAD PRO...")} style={{marginTop:20,padding:"12px 32px",background:"#b89b5e",border:"none",color:"#fff",fontSize:12,fontWeight:600,letterSpacing:"0.04em",cursor:"pointer",borderRadius:4}}>Skapa annons →</button>
 <div style={{display:"flex",justifyContent:"center",gap:28,marginTop:24}}>
 {[["4","Styles"],["25","Photos"],["12+","Channels"]].map(([n,l])=>
 <div key={l}><div style={{fontSize:20,fontWeight:600,color:"#fff"}}>{n}</div><div style={{fontSize:9,color:"#8a8a96"}}>{l}</div></div>)}</div></div>
@@ -2484,12 +2484,12 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 <div style={{fontSize:10,color:C.t3}}>Real-time market valuation based on {mv.tier1Count||0}+ active listings</div></div>
 <button onClick={()=>{const fresh=ENG.calcMarketValue?ENG.calcMarketValue(v):{totalValue:v.valP};v.valP=fresh.totalValue;v.valC=fresh.totalValue;toast("Value updated to $"+fresh.totalValue.toLocaleString("sv-SE"))}} style={{padding:"8px 16px",background:C.o,color:"#fff",borderRadius:8,fontSize:11,fontWeight:600,cursor:"pointer"}}>Refresh Value</button></div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
-<div style={{padding:14,background:C.el,borderRadius:10,textAlign:"center"}}><div style={{fontSize:10,color:C.t3}}>Current Value</div><div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono}}>{(v.valP||0).toLocaleString("sv-SE")}</div><div style={{fontSize:10,color:C.t3}}>USD</div></div>
+<div style={{padding:14,background:C.el,borderRadius:10,textAlign:"center"}}><div style={{fontSize:10,color:C.t3}}>Current Value</div><div style={{fontSize:22,fontWeight:700,color:C.o,fontFamiy:mono}}>{(v.valP||0).toLocaleString("sv-SE")}</div><div style={{fontSize:10,color:C.t3}}>SEK</div></div>
 <div style={{padding:14,background:C.el,borderRadius:10,textAlign:"center"}}><div style={{fontSize:10,color:C.t3}}>Confidence</div><div style={{fontSize:22,fontWeight:700,fontFamiy:mono,color:mv.confidence>70?C.g:mv.confidence>40?C.o:C.r}}>{mv.confidence||0}</div><div style={{fontSize:10,color:C.t3}}>/ 100</div></div>
 <div style={{padding:14,background:C.el,borderRadius:10,textAlign:"center"}}><div style={{fontSize:10,color:C.t3}}>Est. Time to Sell</div><div style={{fontSize:22,fontWeight:700,fontFamiy:mono}}>21</div><div style={{fontSize:10,color:C.t3}}>days</div></div></div></div>
 
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:20}}>
-<div style={{fontSize:14,fontWeight:700,marginBottom:12}}>Listing Plan</div>
+<div style={{fontSize:14,fontWeight:700,marginBottom:12}}>Annonsplan</div>
 {[["Start Fee · $39","One-time setup per listing — includes AI-generated ad copy","Per listing"],["Aimaxauto + AutoAD PRO · $9.90 / 2 weeks","Published on Aimaxauto marketplace + AutoAD PRO","14 days"],["Social · $9.90 / 2 weeks","Facebook, Instagram, YouTube, TikTok","Add-on"],["External · $4.90 / 2 weeks","Autotrader, CarGurus, Cars.com — transfer fee only (listing fees set by each platform)","Add-on"]].map(([t,ch,p],i)=>
 <div key={i} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:i<2?`1px solid ${C.brd}25`:"none"}}><div><div style={{fontSize:13,fontWeight:600}}>{t}</div><div style={{fontSize:11,color:C.t3}}>{ch}</div></div><span style={{fontSize:11,color:C.t2}}>{p}</span></div>)}</div>
 </div>}
@@ -2499,7 +2499,7 @@ return <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:12,
 <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:12}}>
 <div style={{width:36,height:36,borderRadius:10,background:C.o+"20",display:"flex",alignItems:"center",justifyContent:"center",fontSize:18}}>📸</div>
 <div><div style={{fontSize:15,fontWeight:700,color:"#fff"}}>Scan with AIRA</div>
-<div style={{fontSize:11,color:C.t3}}>Take a photo of a document — AIRA reads and auto-fills</div></div></div>
+<div style={{fontSize:11,color:C.t3}}>Ta en bild på ett dokument — AIRA läser och fyller i automatiskt</div></div></div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:8,marginBottom:12}}>
 {[["🔧","Service Invoice",""],["📋","Inspection Report",""],["🛡️","Insurance Letter",""],["💳","Loan Agreement",""],["🔄","Tire Receipt",""],["📑","Purchase Agreement",""]].map(([ic,title,cost],i)=>
 <div key={i} onClick={()=>{toast("📷 Scanning "+title+"...");setTimeout(()=>toast("🔍 AIRA is reading your "+title+"..."),1500);setTimeout(()=>toast("✅ "+title+" scanned and saved! AIRA token cost: $"+(title.includes("Service")||title.includes("Tire")?"0.35":title.includes("Inspection")?"0.30":title.includes("Insurance")||title.includes("Loan")?"0.55":"0.45")),3500)}} style={{padding:10,background:C.el+"80",borderRadius:8,cursor:"pointer",border:"1px solid "+C.brd+"40"}}>
@@ -2571,13 +2571,13 @@ if(selCar)return<div>
 <div style={{fontSize:13,lineHeight:1.65,color:C.t2}}>
 <p>Here are my thoughts on this car:</p>
 <p style={{marginTop:8}}><strong style={{color:C.t1}}>Pris:</strong> {selCar.price<400000?"Priset is in line with the market for this model and year.":"Price is on the high end. There may be room to negotiate, especially with higher mileage."}</p>
-<p style={{marginTop:6}}><strong style={{color:C.t1}}>Condition:</strong> The inspection {selCar.inspSt==="ok"?"passed inspection, which is positive":"needs closer inspection"}. {selCar.mi&&parseInt(selCar.mi.replace(/\s/g,""))>5000?"Mileage is relatively high — worth asking about service history.":"Mileage looks good for the year."}</p>
-<p style={{marginTop:6}}><strong style={{color:C.t1}}>Equipment:</strong> {selCar.equip?.length>=5?"Bra trim level med "+selCar.equip.length+" tillval.":"Standardutrustning."}</p>
+<p style={{marginTop:6}}><strong style={{color:C.t1}}>Skick:</strong> The inspection {selCar.inspSt==="ok"?"passed inspection, which is positive":"needs closer inspection"}. {selCar.mi&&parseInt(selCar.mi.replace(/\s/g,""))>5000?"Mileage is relatively high — worth asking about service history.":"Mileage looks good for the year."}</p>
+<p style={{marginTop:6}}><strong style={{color:C.t1}}>Utrustning:</strong> {selCar.equip?.length>=5?"Bra trim level med "+selCar.equip.length+" tillval.":"Standardutrustning."}</p>
 <p style={{marginTop:8,color:C.o,fontWeight:500}}>💡 I can compare it with similar cars on the market or calculate ownership costs. Just open the chat.</p>
 </div></div>}
 
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:16}}>
-{[["Year",selCar.year],["Mileage",selCar.mi+" mi"],["Fuel",selCar.fuel],["Power",selCar.hp||"—"],["Transmission",selCar.gearbox||"—"],["Drivetrain",selCar.drive||"—"],["Color",selCar.color||"—"],["CO\u2082",selCar.co2||"—"],["Inspection",selCar.inspSt==="ok"?"\u2705 Passed":"\u26a0\ufe0f"]].map(([l,v])=>
+{[["Year",selCar.year],["Mätarställning",selCar.mi+" mi"],["Bränsle",selCar.fuel],["Effekt",selCar.hp||"—"],["Transmission",selCar.gearbox||"—"],["Drivetrain",selCar.drive||"—"],["Color",selCar.color||"—"],["CO\u2082",selCar.co2||"—"],["Inspection",selCar.inspSt==="ok"?"\u2705 Passed":"\u26a0\ufe0f"]].map(([l,v])=>
 <div key={l} style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:8,padding:10}}>
 <div style={{fontSize:10,color:C.t3}}>{l}</div>
 <div style={{fontSize:14,fontWeight:600,marginTop:2}}>{v}</div></div>)}
@@ -2602,7 +2602,7 @@ if(selCar)return<div>
 return<div>
 <div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`,backdropFilter:"blur(12px)"}}>
 <div style={{padding:"12px 20px",display:"flex",justifyContent:"space-between",alignItems:"center",borderBottom:`1px solid ${C.brd}`}}>
-<div><h1 style={{fontSize:20,fontWeight:700}}>Automarket</h1><p style={{fontSize:13,color:C.t2}}>Buy, sell and find your next vehicle</p></div>
+<div><h1 style={{fontSize:20,fontWeight:700}}>Marknad</h1><p style={{fontSize:13,color:C.t2}}>Köp, sälj och hitta ditt nästa fordon</p></div>
 <button onClick={()=>toast("Skapa annons via AutoAD PRO...")} style={{padding:"8px 16px",background:`linear-gradient(135deg,${C.o},${C.oH})`,color:"#fff",borderRadius:9999,fontSize:12,fontWeight:600,cursor:"pointer",boxShadow:`0 2px 12px ${C.oG}`}}>+ Create Listing</button></div>
 
 <div style={{display:"flex",borderBottom:`1px solid ${C.brd}`,padding:"0 12px"}}>
@@ -2614,9 +2614,9 @@ return<div>
 {tab==="vehicles"&&<>
 <div style={{padding:"12px 20px",display:"flex",gap:8,flexWrap:"wrap",borderBottom:`1px solid ${C.brd}`}}>
 <select value={brand} onChange={e=>setBrand(e.target.value)} style={{padding:"8px 12px",background:C.card,border:`1px solid ${C.brd}`,borderRadius:8,color:C.t1,fontSize:12,minWidth:110}}>
-<option value="">All Makes</option>{["BMW","Kia","Polestar","Tesla","Toyota","Ram"].map(b=><option key={b} value={b}>{b}</option>)}</select>
+<option value="">Alla märken</option>{["BMW","Kia","Polestar","Tesla","Toyota","Ram"].map(b=><option key={b} value={b}>{b}</option>)}</select>
 <select value={fuel} onChange={e=>setFuel(e.target.value)} style={{padding:"8px 12px",background:C.card,border:`1px solid ${C.brd}`,borderRadius:8,color:C.t1,fontSize:12,minWidth:100}}>
-<option value="">Fuel Type</option>{["Electric","Hybrid","Gas","Diesel"].map(f=><option key={f} value={f}>{f}</option>)}</select>
+<option value="">Bränsletyp</option>{["Electric","Hybrid","Gas","Diesel"].map(f=><option key={f} value={f}>{f}</option>)}</select>
 <select value={maxPrice} onChange={e=>setMaxPrice(e.target.value)} style={{padding:"8px 12px",background:C.card,border:`1px solid ${C.brd}`,borderRadius:8,color:C.t1,fontSize:12,minWidth:120}}>
 <option value="">Max pris</option>{[200000,300000,400000,500000,600000].map(p=><option key={p} value={p}>{(p/1000)}k USD</option>)}</select>
 {(brand||fuel||maxPrice)&&<button onClick={()=>{setBrand("");setFuel("");setMaxPrice("")}} style={{padding:"8px 12px",background:C.rD,color:C.r,borderRadius:8,fontSize:12,cursor:"pointer"}}>Rensa filter</button>}
@@ -2633,10 +2633,10 @@ return<div>
 <div style={{fontSize:12,color:C.t2,marginTop:2}}>{c.year} · {c.mi} mil · {c.city}</div>
 <div style={{display:"flex",gap:4,marginTop:8,flexWrap:"wrap"}}>{(c.equip||[]).slice(0,3).map(e=><span key={e} style={{fontSize:10,padding:"2px 6px",background:C.el,borderRadius:4,color:C.t2}}>{e}</span>)}</div>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:10}}>
-<span style={{fontSize:20,fontWeight:700,color:C.o,fontFamiy:mono}}>{c.price?.toLocaleString("sv-SE")} <span style={{fontSize:11,fontWeight:400,color:C.t2}}>USD</span></span>
+<span style={{fontSize:20,fontWeight:700,color:C.o,fontFamiy:mono}}>{c.price?.toLocaleString("sv-SE")} <span style={{fontSize:11,fontWeight:400,color:C.t2}}>SEK</span></span>
 <span style={{fontSize:10,color:C.g}}>\u2705 Inspected</span>
 </div></div></div>)}</div>
-{filtered.length===0&&<div style={{padding:40,textAlign:"center",color:C.t2}}>No vehicles match your filters. Try adjusting your search.</div>}
+{filtered.length===0&&<div style={{padding:40,textAlign:"center",color:C.t2}}>Inga fordon matchar dina filter. Prova att justera din sökning.</div>}
 </>}
 
 {tab==="efterlysningar"&&<div style={{padding:16}}>
@@ -2644,7 +2644,7 @@ return<div>
 <div style={{width:40,height:40,borderRadius:10,background:`linear-gradient(135deg,${C.o},${C.oH})`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:18,flexShrink:0}}>\ud83d\udd0d</div>
 <div style={{flex:1}}>
 <div style={{fontSize:14,fontWeight:700}}>Looking for a specific car?</div>
-<div style={{fontSize:12,color:C.t2,marginTop:2}}>Create a want ad and AIRA will match you.</div></div>
+<div style={{fontSize:12,color:C.t2,marginTop:2}}>Skapa en bevakningsannons så matchar AIRA dig.</div></div>
 <button onClick={()=>toast("Create wanted ad...")} style={{padding:"8px 16px",background:C.o,color:"#fff",borderRadius:8,fontSize:12,fontWeight:600,cursor:"pointer",flexShrink:0}}>Create</button></div>
 
 {WANTED.map(w=><div key={w.id} style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:16,marginBottom:10,display:"flex",gap:14}} className="su">
@@ -2666,7 +2666,7 @@ return<div>
 
 {tab==="mina"&&<div style={{padding:40,textAlign:"center"}}>
 <div style={{fontSize:40,marginBottom:12}}>📝</div>
-<div style={{fontSize:16,fontWeight:600,marginBottom:4}}>No active listings</div>
+<div style={{fontSize:16,fontWeight:600,marginBottom:4}}>Inga aktiva annonser</div>
 <div style={{fontSize:13,color:C.t2,marginBottom:16}}>Create your first listing via AutoAD PRO and reach thousands of buyers.</div>
 <button onClick={()=>toast("Öppnar AutoAD PRO...")} style={{padding:"12px 24px",background:C.o,color:"#fff",borderRadius:8,fontSize:14,fontWeight:600,cursor:"pointer"}}>Skapa annons via AutoAD PRO</button>
 </div>}
@@ -2675,7 +2675,7 @@ return<div>
 function BookmarksPage({toast,vehicles}){
 const[tab,setTab]=useState("cars");
 const savedCars=MARKET.slice(0,2);
-return<div><div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`,backdropFilter:"blur(12px)",borderBottom:`1px solid ${C.brd}`,padding:"12px 20px"}}><h1 style={{fontSize:20,fontWeight:700}}>Saved</h1><p style={{fontSize:13,color:C.t2}}>Your saved cars, posts and alerts</p></div>
+return<div><div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`,backdropFilter:"blur(12px)",borderBottom:`1px solid ${C.brd}`,padding:"12px 20px"}}><h1 style={{fontSize:20,fontWeight:700}}>Sparade</h1><p style={{fontSize:13,color:C.t2}}>Dina sparade bilar, inlägg och aviseringar</p></div>
 <div style={{display:"flex",borderBottom:`1px solid ${C.brd}`}}>
 {[["cars","Cars",savedCars.length],["inlagg","Posts",2],["alerts","Alerts",1]].map(([id,l,c])=>
 <button key={id} onClick={()=>setTab(id)} style={{padding:"10px 16px",fontSize:13,fontWeight:tab===id?600:400,color:tab===id?C.o:C.t2,borderBottom:tab===id?`2px solid ${C.o}`:"2px solid transparent",cursor:"pointer"}}>{l} ({c})</button>)}</div>
@@ -2693,7 +2693,7 @@ return<div><div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`
 {tab==="inlagg"&&<div style={{padding:16,textAlign:"center",color:C.t2,paddingTop:40}}>
 <div style={{fontSize:32,marginBottom:8}}>🔖</div>
 <div style={{fontSize:14}}>2 sparade posts</div>
-<div style={{fontSize:12,color:C.t3,marginTop:4}}>Your bookmarked posts from feed appear here.</div></div>}
+<div style={{fontSize:12,color:C.t3,marginTop:4}}>Dina bokmärkta inlägg från flödet visas här.</div></div>}
 
 {tab==="alerts"&&<div style={{padding:16}}>
 <div style={{background:`linear-gradient(135deg,${C.o}10,${C.oH}08)`,border:`1px solid ${C.o}30`,borderRadius:12,padding:16,display:"flex",gap:12,alignItems:"center",marginBottom:12}}>
@@ -2701,7 +2701,7 @@ return<div><div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`
 <div style={{flex:1}}>
 <div style={{fontSize:13,fontWeight:600}}>AIRA watchr: Tesla-insurance</div>
 <div style={{fontSize:11,color:C.t2}}>Your insurance expires 2026-04-15. AIRA compares alternatives for you.</div>
-</div><span style={{fontSize:10,color:C.g,fontWeight:500}}>Active</span></div>
+</div><span style={{fontSize:10,color:C.g,fontWeight:500}}>Aktiv</span></div>
 <button onClick={()=>toast("Create new alert...")} style={{width:"100%",padding:12,border:`1px dashed ${C.brd}`,borderRadius:8,color:C.t2,fontSize:13,cursor:"pointer"}}>+ Add Alert</button>
 </div>}
 </div>}
@@ -2761,10 +2761,10 @@ function ListeraPage({vehicles,toast}){
 return <div>
 <div style={{marginBottom:24}}>
 <div style={{fontSize:22,fontWeight:700,marginBottom:4}}>Listera</div>
-<div style={{fontSize:13,color:C.t2}}>List on America's smartest vehicle platform</div></div>
+<div style={{fontSize:13,color:C.t2}}>Annonsera på Sveriges smartaste fordonsplattform</div></div>
 
 <div style={{background:"linear-gradient(135deg,#1a1814,#12110e)",border:"1px solid "+C.o+"30",borderRadius:16,padding:28,marginBottom:20}}>
-<div style={{fontSize:20,fontWeight:700,color:"#fff",marginBottom:6}}>Reach vehicle owners at exactly the right time</div>
+<div style={{fontSize:20,fontWeight:700,color:"#fff",marginBottom:6}}>Nå fordonsägare vid exakt rätt tidpunkt</div>
 <div style={{fontSize:13,color:C.t3,lineHeight:1.6,marginBottom:16}}>Aimaxauto has something no other platform has: real-time data on what each user drives, when the car needs service, when insurance expires, and when the owner is considering switching cars. This means your offer reaches the right person at the right time — when the need is greatest.</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
 {[["Targeted Advertising","Reach users by make, model, year, region, fuel type and vehicle status"],["Offers & Deals","Present your offers when the user has an active need — inspection, tire change, insurance"],["Partner Agreements","Become a partner with our revenue-share model through AimaxPAY"]].map(([t,d],i)=>
@@ -2775,25 +2775,25 @@ return <div>
 
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14,marginBottom:20}}>
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:14,padding:20}}>
-<div style={{fontSize:16,fontWeight:700,marginBottom:12}}>For Advertisers</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:12}}>För annonsörer</div>
 <div style={{fontSize:12,color:C.t3,lineHeight:1.6,marginBottom:14}}>List on Aimaxauto and reach thousands of active vehicle owners. Our platform offers unique audience targeting based on vehicle data — not personal data. Your offer appears when the need is greatest.</div>
 {["Trigger-based advertising (inspection, tires, insurance, service)","Targeted advertising (make, model, region, fuel type)","Sponsored placements in MyGarage and AIRA","Brand Advertising","Measurable ROI — conversions tracked via AimaxPAY"].map((t,i)=>
 <div key={i} style={{fontSize:11,padding:"5px 0",borderBottom:i<4?"1px solid "+C.brd+"15":"none",display:"flex",gap:6}}>
 <span style={{color:C.o}}>•</span><span>{t}</span></div>)}
-<button onClick={()=>toast("Contact form opening...")} style={{width:"100%",marginTop:14,padding:12,background:C.o,color:"#fff",borderRadius:8,fontSize:13,fontWeight:600,cursor:"pointer"}}>Contact us for advertising</button>
+<button onClick={()=>toast("Contact form opening...")} style={{width:"100%",marginTop:14,padding:12,background:C.o,color:"#fff",borderRadius:8,fontSize:13,fontWeight:600,cursor:"pointer"}}>Kontakta oss för annonsering</button>
 </div>
 
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:14,padding:20}}>
-<div style={{fontSize:16,fontWeight:700,marginBottom:12}}>For Partners</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:12}}>För partners</div>
 <div style={{fontSize:12,color:C.t3,lineHeight:1.6,marginBottom:14}}>Become a partner and get access to qualified customers med konkreta behov. Framework agreement with revenue-share model where all transactions go through AimaxPAY — full traceability and automatic settlement.</div>
 {["Workshops & Service Chains","Tire shops & storage","Insurance Provider","Banker & leasingbolag","Car dealers (new and used sales)","Car wash, charging, accessories"].map((t,i)=>
 <div key={i} style={{fontSize:11,padding:"5px 0",borderBottom:i<5?"1px solid "+C.brd+"15":"none",display:"flex",gap:6}}>
 <span style={{color:C.g}}>•</span><span>{t}</span></div>)}
-<button onClick={()=>toast("Partner application opening...")} style={{width:"100%",marginTop:14,padding:12,background:C.card,color:C.t1,borderRadius:8,fontSize:13,fontWeight:600,cursor:"pointer",border:"1px solid "+C.brd}}>Apply for Partnership</button>
+<button onClick={()=>toast("Partner application opening...")} style={{width:"100%",marginTop:14,padding:12,background:C.card,color:C.t1,borderRadius:8,fontSize:13,fontWeight:600,cursor:"pointer",border:"1px solid "+C.brd}}>Ansök om partnerskap</button>
 </div></div>
 
 <div style={{background:C.card,border:"1px solid "+C.brd,borderRadius:14,padding:20,marginBottom:20}}>
-<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Vehicle Sales via Aimaxauto</div>
+<div style={{fontSize:16,fontWeight:700,marginBottom:14}}>Fordonsförsäljning via Aimaxauto</div>
 <div style={{fontSize:12,color:C.t3,lineHeight:1.6,marginBottom:14}}>Aimaxauto connects buyers with sellers. We leverage our market data and AutoValue Engine to ensure accurate pricing and fast matching.</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,marginBottom:14}}>
 <div style={{padding:14,background:C.el,borderRadius:10}}>
@@ -2812,7 +2812,7 @@ return <div>
 <span style={{fontSize:11,fontWeight:i===3?700:600,fontFamiy:"JetBrains Mono,monospace",color:i===3?C.o:C.t1}}>{v}</span></div>)}
 </div></div>
 <div style={{padding:14,background:C.oD,borderRadius:10,border:"1px solid "+C.o+"20"}}>
-<div style={{fontSize:13,fontWeight:700,color:C.o,marginBottom:6}}>New Car Brokering via Partnerships</div>
+<div style={{fontSize:13,fontWeight:700,color:C.o,marginBottom:6}}>Nybilsförmedling via partnerskap</div>
 <div style={{fontSize:11,color:C.t3,lineHeight:1.5}}>When brokering new cars through our dealership partners, a kickback of approximately 5% of the car's net price applies. Contact us for more information on terms and partnership opportunities.</div></div>
 </div>
 
@@ -2863,7 +2863,7 @@ return<div>
 
 <div style={{padding:16}}>
 {unread.length>0&&<>
-<div style={{fontSize:12,fontWeight:600,color:C.t3,textTransform:"uppercase",letterSpacing:"0.05em",padding:"8px 4px"}}>New</div>
+<div style={{fontSize:12,fontWeight:600,color:C.t3,textTransform:"uppercase",letterSpacing:"0.05em",padding:"8px 4px"}}>Nytt</div>
 {unread.map(n=><div key={n.id} className="su" style={{background:C.card,border:`1px solid ${n.urgent?typeColor[n.type]+"40":C.brd}`,borderRadius:12,padding:"14px 16px",marginBottom:8,display:"flex",gap:12,cursor:"pointer",transition:"background .15s",borderLeft:`3px solid ${typeColor[n.type]||C.brd}`}} onClick={()=>setNotifs(ns=>ns.map(x=>x.id===n.id?{...x,read:true}:x))} onMouseOver={e=>e.currentTarget.style.background=C.cardH} onMouseOut={e=>e.currentTarget.style.background=C.card}>
 <div style={{width:36,height:36,borderRadius:10,background:n.aira?`linear-gradient(135deg,${C.o},${C.oH})`:(typeColor[n.type]||C.t3)+"15",display:"flex",alignItems:"center",justifyContent:"center",fontSize:n.aira?14:16,flexShrink:0,color:n.aira?"#fff":"inherit"}}>{n.aira?"⚡":typeIcon[n.type]||"📌"}</div>
 <div style={{flex:1,minWidth:0}}>
@@ -2962,13 +2962,13 @@ return<div>
 <div style={{fontSize:10,color:"rgba(255,255,255,.4)",marginTop:2}}>Mobility Account</div></div>
 <div style={{fontSize:12,color:"rgba(255,255,255,.5)"}}>💳 Visa •••• 4832</div></div>
 <div style={{fontSize:11,color:"rgba(255,255,255,.4)"}}>Spending This Month</div>
-<div style={{fontSize:32,fontWeight:700,color:"#fff",fontFamiy:mono}}>{Math.abs(totalSpent).toLocaleString("en-US",{minimumFractionDigits:0})} <span style={{fontSize:14,fontWeight:400}}>USD</span></div>
+<div style={{fontSize:32,fontWeight:700,color:"#fff",fontFamiy:mono}}>{Math.abs(totalSpent).toLocaleString("en-US",{minimumFractionDigits:0})} <span style={{fontSize:14,fontWeight:400}}>SEK</span></div>
 <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginTop:12}}>
-<div style={{fontSize:11,color:C.g}}>💰 Cashback: +{totalCashback.toFixed(0)} USD</div>
+<div style={{fontSize:11,color:C.g}}>💰 Cashback: +{totalCashback.toFixed(0)} SEK</div>
 <div style={{fontSize:11,color:"rgba(255,255,255,.4)"}}>James Mitchell</div></div></div>
 
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:10,marginBottom:16}}>
-{[["This Month",Math.abs(totalSpent).toLocaleString("sv-SE")+" $","📊"],["Avg/day",Math.round(Math.abs(totalSpent)/20).toLocaleString("en-US")+" $","📅"],["Cashback","+"+totalCashback.toFixed(0)+" $","💰"]].map(([l,v,ic])=>
+{[["Denna månad",Math.abs(totalSpent).toLocaleString("sv-SE")+" kr","📊"],["Snitt/dag",Math.round(Math.abs(totalSpent)/20).toLocaleString("en-US")+" kr","📅"],["Cashback","+"+totalCashback.toFixed(0)+" kr","💰"]].map(([l,v,ic])=>
 <div key={l} style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:10,padding:12,textAlign:"center"}}>
 <div style={{fontSize:16,marginBottom:4}}>{ic}</div>
 <div style={{fontSize:16,fontWeight:700,color:C.o,fontFamiy:mono}}>{v}</div>
@@ -2983,7 +2983,7 @@ return<div key={cat} style={{display:"flex",alignItems:"center",gap:10,marginBot
 <div style={{width:70,fontSize:11,color:C.t2}}>{catLabels[cat]||cat}</div>
 <div style={{flex:1,height:6,borderRadius:3,background:C.el,overflow:"hidden"}}>
 <div style={{height:"100%",borderRadius:3,background:catColors[cat]||C.o,width:`${pct}%`,transition:"width .5s ease"}}/></div>
-<div style={{width:65,fontSize:12,fontWeight:600,fontFamiy:mono,textAlign:"right"}}>{amount.toLocaleString("sv-SE")} $</div>
+<div style={{width:65,fontSize:12,fontWeight:600,fontFamiy:mono,textAlign:"right"}}>{amount.toLocaleString("sv-SE")} kr</div>
 <div style={{width:30,fontSize:10,color:C.t3,textAlign:"right"}}>{pct}%</div></div>})}
 </div>
 
@@ -2994,10 +2994,10 @@ const vCost=txns.filter(t=>t.vId===v.id&&t.amount<0).reduce((s,t)=>s+Math.abs(t.
 return<div key={v.id} style={{display:"flex",alignItems:"center",gap:10,padding:"10px 0",borderBottom:`1px solid ${C.brd}`}}>
 <div style={{width:6,height:6,borderRadius:3,background:v.status==="ok"?C.g:v.status==="warning"?C.a:C.r}}/>
 <div style={{flex:1}}><div style={{fontSize:13,fontWeight:600}}>{v.brand} {v.model.split(" ")[0]}</div></div>
-<div style={{fontSize:14,fontWeight:700,fontFamiy:mono,color:C.o}}>{vCost.toLocaleString("sv-SE")} $</div></div>})}
+<div style={{fontSize:14,fontWeight:700,fontFamiy:mono,color:C.o}}>{vCost.toLocaleString("sv-SE")} kr</div></div>})}
 <div style={{display:"flex",justifyContent:"space-between",padding:"10px 0 0",marginTop:4}}>
 <span style={{fontSize:12,color:C.t2}}>General costs (AIRA, etc)</span>
-<span style={{fontSize:13,fontWeight:600,fontFamiy:mono}}>{txns.filter(t=>!t.vId&&t.amount<0).reduce((s,t)=>s+Math.abs(t.amount),0).toFixed(0)} $</span></div>
+<span style={{fontSize:13,fontWeight:600,fontFamiy:mono}}>{txns.filter(t=>!t.vId&&t.amount<0).reduce((s,t)=>s+Math.abs(t.amount),0).toFixed(0)} kr</span></div>
 </div>
 </div>}
 
@@ -3017,7 +3017,7 @@ return<div key={v.id} style={{display:"flex",alignItems:"center",gap:10,padding:
 <span style={{fontSize:10,padding:"1px 5px",background:C.el,borderRadius:3,color:C.t2}}>{t.method}</span>
 {t.vId&&<span style={{fontSize:10,color:C.t3}}>{vehicles.find(v=>v.id===t.vId)?.brand||""}</span>}
 </div></div>
-<div style={{fontSize:14,fontWeight:700,fontFamiy:mono,color:t.amount>0?C.g:C.t1}}>{t.amount>0?"+":""}{t.amount.toLocaleString("en-US",{minimumFractionDigits:t.amount%1!==0?2:0})} $</div>
+<div style={{fontSize:14,fontWeight:700,fontFamiy:mono,color:t.amount>0?C.g:C.t1}}>{t.amount>0?"+":""}{t.amount.toLocaleString("en-US",{minimumFractionDigits:t.amount%1!==0?2:0})} kr</div>
 </div>)}
 </div>}
 
@@ -3030,10 +3030,10 @@ return<div key={v.id} style={{background:C.card,border:`1px solid ${C.brd}`,bord
 <div style={{display:"flex",alignItems:"center",gap:8}}>
 <div style={{width:8,height:8,borderRadius:4,background:v.status==="ok"?C.g:v.status==="warning"?C.a:C.r}}/>
 <span style={{fontSize:15,fontWeight:700}}>{v.brand} {v.model.split(" ")[0]}</span></div>
-<span style={{fontSize:18,fontWeight:700,color:C.o,fontFamiy:mono}}>{vTotal.toLocaleString("sv-SE")} $</span></div>
+<span style={{fontSize:18,fontWeight:700,color:C.o,fontFamiy:mono}}>{vTotal.toLocaleString("sv-SE")} kr</span></div>
 {vTxns.slice(0,3).map(t=><div key={t.id} style={{display:"flex",justifyContent:"space-between",padding:"4px 0",fontSize:12}}>
 <span style={{color:C.t2}}>{t.icon} {t.desc.split("—")[0]}</span>
-<span style={{fontFamiy:mono,color:t.amount>0?C.g:C.t1}}>{t.amount.toLocaleString("sv-SE")} $</span></div>)}
+<span style={{fontFamiy:mono,color:t.amount>0?C.g:C.t1}}>{t.amount.toLocaleString("sv-SE")} kr</span></div>)}
 {vTxns.length>3&&<div style={{fontSize:11,color:C.o,marginTop:4,cursor:"pointer"}} onClick={()=>{setSelV(String(v.id));setTab("transactions")}}>View all {vTxns.length} transactions →</div>}
 </div>})}
 </div>}
@@ -3050,7 +3050,7 @@ return<div key={v.id} style={{background:C.card,border:`1px solid ${C.brd}`,bord
 
 <div style={{background:C.card,border:`1px solid ${C.brd}`,borderRadius:12,padding:16,marginBottom:12}}>
 <div style={{fontSize:14,fontWeight:700,marginBottom:12}}>Automatiska betalningar</div>
-{[["Insurance (Auto-pay)",true,"210 $/mo"],["DMV Registration (Auto-pay)",true,"Quarterly"],["AIRA Premium",true,"$29/yr + tokens"],["Charging (AimaxPAY)",true,"Recurring"],["Parking (AimaxPAY)",true,"Recurring"]].map(([l,on,d])=>
+{[["Insurance (Auto-pay)",true,"210 kr/mån"],["DMV Registration (Auto-pay)",true,"Quarterly"],["AIRA Premium",true,"$29/yr + tokens"],["Charging (AimaxPAY)",true,"Recurring"],["Parking (AimaxPAY)",true,"Recurring"]].map(([l,on,d])=>
 <div key={l} style={{display:"flex",justifyContent:"space-between",alignItems:"center",padding:"10px 0",borderBottom:`1px solid ${C.brd}`}}>
 <div><div style={{fontSize:13}}>{l}</div><div style={{fontSize:11,color:C.t3}}>{d}</div></div>
 <div className={`toggle ${on?"on":"off"}`} onClick={()=>toast(l+" updated")}/></div>)}
@@ -3086,7 +3086,7 @@ return<div><div style={{position:"sticky",top:0,zIndex:10,background:`${C.bg}e6`
 <div style={{fontSize:12,color:C.t2}}>{isPremium?"Unlimited AIRA access · Partner offers · Priority support":"Upgrade to unlock AIRA and exclusive offers"}</div>
 </div>
 {!isPremium&&<button onClick={()=>toast("View Premium plans...")} style={{padding:"8px 16px",background:C.o,color:"#fff",borderRadius:8,fontSize:12,fontWeight:600,cursor:"pointer"}}>Uppgradera</button>}
-{isPremium&&<span style={{padding:"4px 10px",background:C.oD,color:C.o,borderRadius:6,fontSize:11,fontWeight:600}}>Active</span>}
+{isPremium&&<span style={{padding:"4px 10px",background:C.oD,color:C.o,borderRadius:6,fontSize:11,fontWeight:600}}>Aktiv</span>}
 </div>
 
 <div style={{fontSize:14,fontWeight:700,color:C.t2,marginBottom:10}}>Personal Information</div>
@@ -3164,7 +3164,7 @@ return<div style={{position:"fixed",inset:0,zIndex:200,background:"rgba(0,0,0,.7
 <div style={{margin:"0 24px 16px",background:C.card,border:`1px solid ${C.brd}`,borderRadius:10,padding:14}}>
 <div style={{fontSize:12,fontWeight:600,marginBottom:8}}>How AIRA pricing works:</div>
 <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:8}}>
-{[["Membership",price+" $/"+(billing==="yearly"?"yr":"mo"),"Fixed fee"],["Per Question",plan.baseCost.toFixed(2)+" $","Grundkostnad"],["Tokens","$0.005-0.015/each","In/ut per svar"]].map(([l,v,d])=>
+{[["Medlemskap",price+" kr/"+(billing==="yearly"?"år":"mån"),"Fast avgift"],["Per fråga",plan.baseCost.toFixed(2)+" kr","Grundkostnad"],["Tokens","0,05-0,15 kr/st","In/ut per svar"]].map(([l,v,d])=>
 <div key={l} style={{textAlign:"center",padding:8,background:C.bg,borderRadius:8}}>
 <div style={{fontSize:10,color:C.t3}}>{l}</div>
 <div style={{fontSize:15,fontWeight:700,color:C.o,fontFamiy:mono}}>{v}</div>
