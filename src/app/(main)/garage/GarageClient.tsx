@@ -41,9 +41,9 @@ export function GarageClient({ vehicles }: { vehicles: GarageVehicle[] }) {
             </p>
           </div>
           <div className="flex gap-2">
-            <button className="px-4 py-2 bg-[#FF6B00] text-white rounded-full text-sm font-semibold hover:bg-[#FF8533] transition-colors">
-              + Add Vehicle
-            </button>
+            <a href="/garage/add" className="px-4 py-2 bg-[#FF6B00] text-white rounded-full text-sm font-semibold hover:bg-[#FF8533] transition-colors">
+  + Add Vehicle
+</a>
             <div className="flex border border-[#2a2a2f] rounded-lg overflow-hidden">
               {(["dashboard", "grid"] as const).map((m) => (
                 <button
