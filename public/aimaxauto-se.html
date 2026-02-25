@@ -985,7 +985,12 @@ const{useState,useEffect,useRef,useCallback}=React;
 var _TR={sv:{nh:"Hem"},en:{nh:"Home"}};function t(k){var d=_TR[window._lang||"en"]||{};return d[k]||k}
 
 
-const C={bg:"#0a0a0c",sf:"#111114",card:"#16181c",cardH:"#1c1e22",el:"#1e2024",brd:"#2a2a2f",brdL:"#38383f",o:"#FF6B00",oH:"#FF8533",oD:"rgba(255,107,0,0.10)",oG:"rgba(255,107,0,0.20)",g:"#10b981",gD:"rgba(16,185,129,0.10)",r:"#ef4444",rD:"rgba(239,68,68,0.10)",a:"#f59e0b",aD:"rgba(245,158,11,0.10)",bl:"#3b82f6",blD:"rgba(59,130,246,0.10)",t1:"#e7e9ea",t2:"#71767b",t3:"#536471"};
+const DARK_THEME={bg:"#0a0a0c",sf:"#111114",card:"#16181c",cardH:"#1c1e22",el:"#1e2024",brd:"#2a2a2f",brdL:"#38383f",o:"#FF6B00",oH:"#FF8533",oD:"rgba(255,107,0,0.10)",oG:"rgba(255,107,0,0.20)",g:"#10b981",gD:"rgba(16,185,129,0.10)",r:"#ef4444",rD:"rgba(239,68,68,0.10)",a:"#f59e0b",aD:"rgba(245,158,11,0.10)",bl:"#3b82f6",blD:"rgba(59,130,246,0.10)",t1:"#e7e9ea",t2:"#71767b",t3:"#536471"};
+const LIGHT_THEME={bg:"#f5f5f7",sf:"#ffffff",card:"#ffffff",cardH:"#f0f0f2",el:"#e8e8ed",brd:"#d1d1d6",brdL:"#c7c7cc",o:"#E55D00",oH:"#CC5200",oD:"rgba(229,93,0,0.08)",oG:"rgba(229,93,0,0.12)",g:"#059669",gD:"rgba(5,150,105,0.08)",r:"#dc2626",rD:"rgba(220,38,38,0.08)",a:"#d97706",aD:"rgba(217,119,6,0.08)",bl:"#2563eb",blD:"rgba(37,99,235,0.08)",t1:"#1c1c1e",t2:"#6e6e73",t3:"#8e8e93"};
+let C=DARK_THEME;
+window._isDark=true;
+window._themeListeners=[];
+window.toggleTheme=function(){window._isDark=!window._isDark;C=window._isDark?DARK_THEME:LIGHT_THEME;window._themeListeners.forEach(fn=>fn(window._isDark));document.body.style.background=C.bg;};
 const mono="'JetBrains Mono','SF Mono',monospace";
 
 const USER={name:"Björn Andersson",handle:"@bjornandersson",email:"bjorn@aimaxauto.com",phone:"073-555 87 24",bio:"Bilentusiast & tekniknörd. 4 bilar i garaget.",joined:"Feb 2026",following:127,followers:89};
@@ -1241,7 +1246,7 @@ input::placeholder,textarea::placeholder{color:${C.t3}}
 .nav-item:hover{background:${C.el}}
 .nav-item.active{color:${C.o};font-weight:160;background:${C.oD}}
 .post-card{border-bottom:1px solid ${C.brd};padding:16px 20px;transition:background .15s}
-.post-card:hover{background:rgba(255,255,255,0.02)}
+.post-card:hover{background:${C===DARK_THEME?"rgba(255,255,255,0.02)":"rgba(0,0,0,0.02)"}}
 .act-btn{display:flex;align-items:center;gap:5px;color:${C.t3};font-size:13px;cursor:pointer;padding:4px 8px;border-radius:9999px;transition:all .15s}
 .act-btn:hover{background:${C.oD};color:${C.o}}
 .act-btn.liked{color:${C.r}}
@@ -1277,7 +1282,7 @@ function Badge({children,color=C.o}){return<span style={{padding:"2px 8px",fontS
 
 function EditIcon(){return<span style={{cursor:"pointer",fontSize:13,marginLeft:6}}>🖊</span>}
 
-function LeftNav({page,setPage,unread,isPremium}){
+function LeftNav({page,setPage,unread,isPremium,isDark}){
 const items=[
 {id:"home",l:t("nh"),svg:'M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z M9 22V12h6v10'},
 {id:"explore",l:"Utforska",svg:'M4 9h16 M4 15h16 M10 3l-2 18 M16 3l-2 18'},
@@ -1308,6 +1313,9 @@ return<aside onMouseEnter={()=>setHov(true)} onMouseLeave={()=>setHov(false)} st
 <div style={{borderTop:`1px solid ${C.brd}`,paddingTop:8,marginTop:4,display:"flex",flexDirection:"column",gap:4}}>
 <button style={{display:"flex",alignItems:"center",gap:12,padding:hov?"8px 14px":"8px 0",justifyContent:hov?"flex-start":"center",width:"100%",height:40,borderRadius:9999,color:C.t2,fontSize:14,cursor:"pointer",overflow:"hidden",whiteSpace:"nowrap",transition:"padding .2s"}} onMouseOver={e=>e.currentTarget.style.background=C.el} onMouseOut={e=>e.currentTarget.style.background="transparent"}>
 <span style={{fontSize:16,minWidth:24,textAlign:"center"}}>🌐</span>{hov&&<span>Svenska ▾</span>}
+</button>
+<button onClick={()=>{window.toggleTheme();}} style={{display:"flex",alignItems:"center",gap:12,padding:hov?"8px 14px":"8px 0",justifyContent:hov?"flex-start":"center",width:"100%",height:40,borderRadius:9999,color:C.t2,fontSize:14,cursor:"pointer",overflow:"hidden",whiteSpace:"nowrap",transition:"padding .2s"}} onMouseOver={e=>e.currentTarget.style.background=C.el} onMouseOut={e=>e.currentTarget.style.background="transparent"}>
+<span style={{fontSize:16,minWidth:24,textAlign:"center"}}>{isDark?"☀️":"🌙"}</span>{hov&&<span>{isDark?"Ljust läge":"Mörkt läge"}</span>}
 </button>
 <button onClick={()=>{}} style={{display:"flex",alignItems:"center",gap:12,padding:"0",justifyContent:"center",width:"100%",height:42,borderRadius:9999,background:C.o,color:"#fff",fontSize:14,fontWeight:600,cursor:"pointer",overflow:"hidden",whiteSpace:"nowrap"}}>
 <span>⎋</span>{hov&&<span>Logga ut</span>}
@@ -3238,6 +3246,8 @@ function App(){
 
 
 var lang="sv";
+const[isDark,setIsDark]=useState(window._isDark);
+useEffect(()=>{const fn=(v)=>setIsDark(v);window._themeListeners.push(fn);return()=>{window._themeListeners=window._themeListeners.filter(f=>f!==fn);};},[]);
 const[page,setPage]=useState("home");
 const[feed,setFeed]=useState(FEED);
 const[notifs,setNotifs]=useState(NOTIFS);
@@ -3281,8 +3291,8 @@ setAiraReceipt({...airaBilling,plan:premPlan,closedAt:new Date().toLocaleString(
 setAiraOpen(false);
 };
 
-return<div><Styles/>
-<div style={{display:"flex",justifyContent:"center",maxWidth:1060,margin:"0 auto"}}><LeftNav page={page} setPage={changePage} unread={unread} isPremium={isPremium}/>
+return<div style={{background:C.bg,color:C.t1,minHeight:"100vh",transition:"background .3s,color .3s"}}><Styles/>
+<div style={{display:"flex",justifyContent:"center",maxWidth:1060,margin:"0 auto"}}><LeftNav page={page} setPage={changePage} unread={unread} isPremium={isPremium} isDark={isDark}/>
 {showPaywall&&<PremiumPaywall onClose={()=>setShowPaywall(false)} onUpgrade={handleUpgrade} toast={toast}/>}
 <main style={{flex:1,maxWidth:640,minHeight:"100vh",borderRight:`1px solid ${C.brd}`,borderLeft:`1px solid ${C.brd}`}}>{render()}</main>
 <RightBar vehicles={VEHICLES} setPage={changePage} toast={toast} selCV={selCV} setSelCV={setSelCV} isPremium={isPremium} onAiraOpen={()=>setAiraOpen(true)} onScanDoc={()=>{setScanMode(true);changePage("garage")}}/></div>
